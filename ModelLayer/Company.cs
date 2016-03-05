@@ -8,8 +8,15 @@ namespace ModelLayer
 {
     public class Company
     {
-        private string name;
-        private string link;
-        private string description;
+        public string name { get; set; }
+        public string link { get; set; }
+        public string description { get; set; }
+
+        public Company(string name, string link, string description)
+        {
+            this.name = name;
+            this.link = link;
+            this.description = description;
+        }
     }
 }
