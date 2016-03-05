@@ -12,5 +12,6 @@ namespace ModelLayer
         private string qustion;
         private Person ask;
         private List<Answer> answer;
+        private DateTime time;
     }
 }

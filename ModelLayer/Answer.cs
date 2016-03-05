@@ -10,5 +10,7 @@ namespace ModelLayer
     {
         private Person answer;
         private string text;
+        private DateTime time;
+        private int id;
     }
 }
