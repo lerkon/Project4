@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ModelLayer
 {
-    public class MessageContainer
+    public class Answer
     {
-        private int id;
-        private List<Message> message;
+        private Person answer;
+        private string text;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControlLayer
 {
-    public vclass ItemControl
+    public class ItemControl
     {
     }
 }

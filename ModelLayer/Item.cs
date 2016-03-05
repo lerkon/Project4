@@ -12,5 +12,6 @@ namespace ModelLayer
         private string name;
         private int stock;
         private int stockRemained;
+        private List<Message> questions;
     }
 }

@@ -9,7 +9,8 @@ namespace ModelLayer
     public class Message
     {
         private int id;
-        private string text;
-        Person personAnswer;
+        private string qustion;
+        private Person ask;
+        private List<Answer> answer;
     }
 }

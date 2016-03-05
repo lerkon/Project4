@@ -16,7 +16,6 @@ namespace ModelLayer
         private Company company;
         private List<Item> itemsSold;
         private List<Item> itemsBought;
-        private List<Message> message;
         private int zipCode;
         private string email;
         private string phone;
