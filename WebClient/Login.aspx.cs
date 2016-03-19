@@ -6,10 +6,16 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class MainPage : System.Web.UI.Page
+public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
+    }
+
+    [WebMethod]
+    public static string login(string username, string password)
+    {
+        return "działa";
     }
 }
