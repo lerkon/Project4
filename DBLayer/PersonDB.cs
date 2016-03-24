@@ -4,20 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ModelLayer;
+using DBLayer;
 
 namespace DataLayer
 {
     public class PersonDB
     {
-        public Person getPerson(int id)
+        public PersonLocal getPerson(int id)
         {
-            Person p = null;
-            using (var enities = new Entities())
+            PersonLocal p = null;
+            using (var enities = new dmaj0914_2Sem_5Entities())
             {
-                var person = enities.Personns.Where(a => a.id == id).FirstOrDefault();
+                var person = enities.People.Where(a => a.id == id).FirstOrDefault();
                 if (person != null)
                 {
-                    p = new Person();
+                    p = new PersonLocal();
                     p.login = person.login;
                     p.name = person.name;
                     p.surname = person.surname;
@@ -35,12 +36,12 @@ namespace DataLayer
             return p;
         }
 
-        public bool setPerson(ref Person person)
+        public bool setPerson(ref PersonLocal person)
         {
-            using (var enities = new Entities())
+            using (var enities = new dmaj0914_2Sem_5Entities())
             {
                 string[] data = new Password().getPasswordNewUser(person.password);
-                enities.Personns.Add(new Personn()
+                enities.People.Add(new Person()
                 {
                     name = person.name,
                     login = person.login,
@@ -58,7 +59,7 @@ namespace DataLayer
                 if (ok == 1)
                 {
                     string l = person.login;
-                    person.id = enities.Personns.Where(a => a.login == l).FirstOrDefault().id;
+                    person.id = enities.People.Where(a => a.login == l).FirstOrDefault().id;
                     return true;
                 }
                 else

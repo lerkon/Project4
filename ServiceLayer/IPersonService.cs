@@ -13,15 +13,15 @@ namespace ServiceLayer
     {
         [OperationContract]
         [FaultContract(typeof(PersonFault))]
-        PersonS login(string login, string password, ref string message);
+        Person login(string login, string password, ref string message);
 
         [OperationContract]
         [FaultContract(typeof(PersonFault))]
-        PersonS setPerson(ref Person person, ref string message);
+        Person setPerson(ref PersonLocal person, ref string message);
     }
 
     [DataContract]
-    public class PersonS
+    public class Person
     {
         [DataMember]
         public string FaultMessage { get; set; }

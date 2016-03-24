@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataLayer
+namespace DBLayer
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class dmaj0914_2Sem_5Entities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public dmaj0914_2Sem_5Entities()
+            : base("name=dmaj0914_2Sem_5Entities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace DataLayer
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Companyy> Companyies { get; set; }
-        public virtual DbSet<Personn> Personns { get; set; }
+        public virtual DbSet<Company> Companies { get; set; }
+        public virtual DbSet<Person> People { get; set; }
     }
 }

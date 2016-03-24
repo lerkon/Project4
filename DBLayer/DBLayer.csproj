@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D1864267-231A-4495-95DE-8F3101A74229}</ProjectGuid>
+    <ProjectGuid>{9A3F5DEE-5773-4B1E-BE5E-7964E8560804}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataLayer</RootNamespace>
-    <AssemblyName>DataLayer</AssemblyName>
+    <RootNamespace>DBLayer</RootNamespace>
+    <AssemblyName>DBLayer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -51,10 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompanyDB.cs" />
-    <Compile Include="Companyy.cs">
+    <Compile Include="Company.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="CompanyDB.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,10 +71,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Password.cs" />
-    <Compile Include="PersonDB.cs" />
-    <Compile Include="Personn.cs">
+    <Compile Include="Person.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="PersonDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -107,7 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
-      <Project>{4cab0740-d0ec-42e1-b648-06f211ee0c68}</Project>
+      <Project>{3fa13b0b-0921-4563-ba1d-574124c9c092}</Project>
       <Name>ModelLayer</Name>
     </ProjectReference>
   </ItemGroup>

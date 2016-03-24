@@ -7,17 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataLayer
+namespace DBLayer
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Personn
+    public partial class Person
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Personn()
+        public Person()
         {
-            this.Companies = new HashSet<Companyy>();
+            this.Companies = new HashSet<Company>();
         }
     
         public int id { get; set; }
@@ -33,6 +33,6 @@ namespace DataLayer
         public string salt { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Companyy> Companies { get; set; }
+        public virtual ICollection<Company> Companies { get; set; }
     }
 }

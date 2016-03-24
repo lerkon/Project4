@@ -4,20 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ModelLayer;
+using DBLayer;
 
 namespace DataLayer
 {
     class CompanyDB
     {
-        public Company getCompany(int personId)
+        public CompanyLocal getCompany(int personId)
         {
-            Company c = null;
-            using (var enities = new Entities())
+            CompanyLocal c = null;
+            using (var enities = new dmaj0914_2Sem_5Entities())
             {
-                var company = enities.Companyies.Where(a => a.personId == personId).FirstOrDefault();
+                var company = enities.Companies.Where(a => a.personId == personId).FirstOrDefault();
                 if (company != null)
                 {
-                    c = new Company();
+                    c = new CompanyLocal();
                     c.name = company.name;
                     c.link = company.link;
                     c.description = company.description;
@@ -26,11 +27,11 @@ namespace DataLayer
             return c;
         }
 
-        public bool setCompany(Person p)
+        public bool setCompany(PersonLocal p)
         {
-            using (var enities = new Entities())
+            using (var enities = new dmaj0914_2Sem_5Entities())
             {
-                enities.Companyies.Add(new Companyy()
+                enities.Companies.Add(new Company()
                 {
                     name = p.company.name,
                     link = p.company.link,

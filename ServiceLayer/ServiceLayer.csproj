@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6FA7844C-6898-4619-B5B3-D6D875E653A1}</ProjectGuid>
+    <ProjectGuid>{4545FE77-3C1D-412D-A188-B73414BE8C7E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ServiceLayer</RootNamespace>
@@ -54,11 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ControlLayer\ControlLayer.csproj">
-      <Project>{5542f787-2ca8-459f-872d-44a5ae769365}</Project>
+      <Project>{58ef5607-adfd-4943-9599-756883e9f81f}</Project>
       <Name>ControlLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
-      <Project>{4cab0740-d0ec-42e1-b648-06f211ee0c68}</Project>
+      <Project>{3fa13b0b-0921-4563-ba1d-574124c9c092}</Project>
       <Name>ModelLayer</Name>
     </ProjectReference>
   </ItemGroup>

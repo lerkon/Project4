@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="dmaj0914_2Sem_8Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="dmaj0914_2Sem_5Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="personId" />
@@ -45,7 +45,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="dmaj0914_2Sem_8ModelStoreContainer">
+        <EntityContainer Name="dmaj0914_2Sem_5ModelStoreContainer">
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="a" Association="Self.a">
@@ -53,11 +53,12 @@
             <End Role="Company" EntitySet="Company" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="dmaj0914_2Sem_8Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Companyy">
+      <Schema Namespace="dmaj0914_2Sem_5Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Company">
           <Key>
             <PropertyRef Name="personId" />
             <PropertyRef Name="name" />
@@ -68,7 +69,7 @@
           <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.a" FromRole="Company" ToRole="Person" />
         </EntityType>
-        <EntityType Name="Personn">
+        <EntityType Name="Person">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -86,10 +87,10 @@
           <NavigationProperty Name="Companies" Relationship="Self.a" FromRole="Person" ToRole="Company" />
         </EntityType>
         <Association Name="a">
-          <End Role="Person" Type="dmaj0914_2Sem_8Model.Personn" Multiplicity="1">
+          <End Role="Person" Type="Self.Person" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Company" Type="dmaj0914_2Sem_8Model.Companyy" Multiplicity="*" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Person">
               <PropertyRef Name="id" />
@@ -99,12 +100,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Companyies" EntityType="dmaj0914_2Sem_8Model.Companyy" />
-          <EntitySet Name="Personns" EntityType="dmaj0914_2Sem_8Model.Personn" />
+        <EntityContainer Name="dmaj0914_2Sem_5Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="People" EntityType="Self.Person" />
           <AssociationSet Name="a" Association="Self.a">
-            <End Role="Person" EntitySet="Personns" />
-            <End Role="Company" EntitySet="Companyies" />
+            <End Role="Person" EntitySet="People" />
+            <End Role="Company" EntitySet="Companies" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -112,9 +113,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dmaj0914_2Sem_8ModelStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="Companyies">
-            <EntityTypeMapping TypeName="dmaj0914_2Sem_8Model.Companyy">
+        <EntityContainerMapping StorageEntityContainer="dmaj0914_2Sem_5ModelStoreContainer" CdmEntityContainer="dmaj0914_2Sem_5Entities">
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="dmaj0914_2Sem_5Model.Company">
               <MappingFragment StoreEntitySet="Company">
                 <ScalarProperty Name="personId" ColumnName="personId" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -123,8 +124,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Personns">
-            <EntityTypeMapping TypeName="dmaj0914_2Sem_8Model.Personn">
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="dmaj0914_2Sem_5Model.Person">
               <MappingFragment StoreEntitySet="Person">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />

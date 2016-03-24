@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using ModelLayer;
 using System.Security.Cryptography;
+using DBLayer;
 
 namespace DataLayer
 {
     public class Password
     {
-        public Person login(string login, string password)
+        public PersonLocal login(string login, string password)
         {
             string[] dbData = getPasswordSaltDB(login);
             if (dbData != null)
@@ -29,9 +30,9 @@ namespace DataLayer
         private string[] getPasswordSaltDB(string login)
         {
             string[] data = null;
-            using (var enities = new Entities())
+            using (var enities = new dmaj0914_2Sem_5Entities())
             {
-                var person = enities.Personns.Where(a => a.login == login).FirstOrDefault();
+                var person = enities.People.Where(a => a.login == login).FirstOrDefault();
                 if (person != null)
                     data = new string[] { person.password, person.salt, person.id.ToString() };
             }

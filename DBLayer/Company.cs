@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataLayer
+namespace DBLayer
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Companyy
+    public partial class Company
     {
         public int personId { get; set; }
         public string name { get; set; }
         public string link { get; set; }
         public string description { get; set; }
     
-        public virtual Personn Person { get; set; }
+        public virtual Person Person { get; set; }
     }
 }

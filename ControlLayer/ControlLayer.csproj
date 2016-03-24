@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5542F787-2CA8-459F-872D-44A5AE769365}</ProjectGuid>
+    <ProjectGuid>{58EF5607-ADFD-4943-9599-756883E9F81F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ControlLayer</RootNamespace>
@@ -46,12 +46,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
-      <Project>{d1864267-231a-4495-95de-8f3101a74229}</Project>
-      <Name>DataLayer</Name>
+    <ProjectReference Include="..\DBLayer\DBLayer.csproj">
+      <Project>{9a3f5dee-5773-4b1e-be5e-7964e8560804}</Project>
+      <Name>DBLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
-      <Project>{4cab0740-d0ec-42e1-b648-06f211ee0c68}</Project>
+      <Project>{3fa13b0b-0921-4563-ba1d-574124c9c092}</Project>
       <Name>ModelLayer</Name>
     </ProjectReference>
   </ItemGroup>

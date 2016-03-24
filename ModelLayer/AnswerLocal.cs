@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace ModelLayer
 {
-    public class Item
+    public class AnswerLocal
     {
+        private PersonLocal answer;
+        private string text;
+        private DateTime time;
         private int id;
-        private string name;
-        private int stock;
-        private int stockRemained;
-        private List<Message> questions;
     }
 }
