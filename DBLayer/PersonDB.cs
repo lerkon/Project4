@@ -60,6 +60,7 @@ namespace DataLayer
                 {
                     string l = person.login;
                     person.id = enities.People.Where(a => a.login == l).FirstOrDefault().id;
+                    new CompanyDB().setCompany(person);
                     return true;
                 }
                 else

@@ -17,7 +17,7 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(PersonFault))]
-        Person setPerson(ref PersonLocal person, ref string message);
+        Person setPerson(Person person, ref string message);
     }
 
     [DataContract]
@@ -46,7 +46,7 @@ namespace ServiceLayer
         [DataMember]
         public string address { get; set; }
         [DataMember]
-        private Company company { get; set; }
+        public Company company { get; set; }
         //private List<Item> itemsSold;
         //private List<Item> itemsBought;
     }
@@ -57,7 +57,7 @@ namespace ServiceLayer
         [DataMember]
         public string name { get; set; }
         [DataMember]
-        public int link { get; set; }
+        public string link { get; set; }
         [DataMember]
         public string description { get; set; }
     }

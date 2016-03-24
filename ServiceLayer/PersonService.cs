@@ -16,23 +16,35 @@ namespace ServiceLayer
             throw new NotImplementedException();
         }
 
-        public Person setPerson(ref PersonLocal person, ref string message)
+        public Person setPerson(Person person, ref string message)
         {
-            person = new PersonLocal();
-            person.login = "aaa";
-            person.name = "aaa";
-            person.surname = "aaa";
-            person.company = null;
-            person.itemsSold = null;
-            person.itemsBought = null;
-            person.zipCode = 1111;
-            person.email = "aaa";
-            person.phone = "aaa";
-            person.city = "aaa";
-            person.address = "aaa";
-            person.password = "aaa";
-            new PersonControl().setPerson(ref person, ref message);
+            PersonLocal p = personLocalFromPerson(person);
+            new PersonControl().setPerson(ref p, ref message);
             return null;
+        }
+
+        public Person personLocalToPerson(PersonLocal person)
+        {
+            return null;
+        }
+
+        public PersonLocal personLocalFromPerson(Person person)
+        {
+            PersonLocal p = new PersonLocal();
+            p.address = person.address;
+            p.city = person.city;
+            p.email = person.email;
+            p.id = person.id;
+            p.login = person.login;
+            p.name = person.name;
+            p.password = person.password;
+            p.phone = person.phone;
+            p.surname = person.surname;
+            p.zipCode = person.zipCode;
+            p.company.description = person.company.description;
+            p.company.link = person.company.link;
+            p.company.name = person.company.name;
+            return p;
         }
     }
 }
