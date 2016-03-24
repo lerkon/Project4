@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="ItemControl.cs" />
     <Compile Include="MessageControl.cs" />
-    <Compile Include="PasswordControl.cs" />
     <Compile Include="PersonControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

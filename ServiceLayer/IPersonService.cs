@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using ModelLayer;
 
 namespace ServiceLayer
 {
@@ -13,6 +14,10 @@ namespace ServiceLayer
         [OperationContract]
         [FaultContract(typeof(PersonFault))]
         PersonS login(string login, string password, ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(PersonFault))]
+        PersonS setPerson(ref Person person, ref string message);
     }
 
     [DataContract]

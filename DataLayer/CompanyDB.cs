@@ -25,5 +25,24 @@ namespace DataLayer
             }
             return c;
         }
+
+        public bool setCompany(Person p)
+        {
+            using (var enities = new Entities())
+            {
+                enities.Companyies.Add(new Companyy()
+                {
+                    name = p.company.name,
+                    link = p.company.link,
+                    description = p.company.description,
+                    personId = p.id
+                });
+                int ok = enities.SaveChanges();
+                if (ok == 1)
+                    return true;
+                else
+                    return false;
+            }
+        }
     }
 }
