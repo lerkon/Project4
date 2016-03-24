@@ -9,8 +9,9 @@ namespace ServiceLayer
 {
     public class PersonService : IPersonService
     {
-        public void DoWork()
+        public PersonS login(string login, string password, ref string message)
         {
+            throw new NotImplementedException();
         }
     }
 }

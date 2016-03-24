@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5C55B8D1-6B51-43C3-A330-1FFC5C46EEC3}</ProjectGuid>
+    <ProjectGuid>{5542F787-2CA8-459F-872D-44A5AE769365}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ControlLayer</RootNamespace>
@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
-      <Project>{9aabe7a4-0bcd-4c53-96b0-dd9fde9ba136}</Project>
+      <Project>{d1864267-231a-4495-95de-8f3101a74229}</Project>
       <Name>DataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">

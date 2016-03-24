@@ -12,11 +12,11 @@ namespace ServiceLayer
     {
         [OperationContract]
         [FaultContract(typeof(PersonFault))]
-        Person login(string login, string password, ref string message);
+        PersonS login(string login, string password, ref string message);
     }
 
     [DataContract]
-    public class Person
+    public class PersonS
     {
         [DataMember]
         public string FaultMessage { get; set; }

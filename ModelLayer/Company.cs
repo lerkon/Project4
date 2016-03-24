@@ -12,6 +12,7 @@ namespace ModelLayer
         public string link { get; set; }
         public string description { get; set; }
 
+        public Company() { }
         public Company(string name, string link, string description)
         {
             this.name = name;

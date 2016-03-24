@@ -12,7 +12,7 @@ namespace ControlLayer
     {
         public Person login(string login, string password, ref string message)
         {
-            return new Password.login(login, password, ref message);
+            return new Password().login(login, password);
         }
     }
 }

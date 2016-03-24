@@ -17,7 +17,7 @@ namespace DataLayer
             {
                 if (comparePasswords(password, dbData[0], dbData[1]) == true)
                 {
-                    return new PersonDB().getPerson(login);
+                    return new PersonDB().getPerson(int.Parse(dbData[1]));
                 }
                 else
                     return null;
@@ -29,12 +29,16 @@ namespace DataLayer
         private string[] getPasswordSaltDB(string login)
         {
             string[] data = null;
-            var person = PHEntities.Admin.Where(a => a.login == login);
-            if (data.FirstOrDefault() != null)
-                data = new string[] { person.First().pass, person.First().salt, person.First().id.ToString() };
+            using (var enities = new Entities())
+            {
+                var person = enities.Personns.Where(a => a.login == login).FirstOrDefault();
+                if (person != null)
+                    data = new string[] { person.password, person.salt, person.id.ToString() };
+            }
+            return data;
         }
 
-        public string[] getFullyHash(string password)
+        public string[] getPasswordNewUser(string password)
         {
             string salt = getRandomNumber(20);
             return new string[] { getPBKDF2(password, salt), salt };
