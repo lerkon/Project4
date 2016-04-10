@@ -13,19 +13,41 @@ namespace ServiceLayer
     {
         public Person login(string login, string password, ref string message)
         {
-            throw new NotImplementedException();
+            PersonLocal pl = new PersonControl().login(login, password, ref message);
+            Person p = null;
+            if (pl != null)
+                p = personLocalToPerson(pl);
+            return p;
         }
 
         public Person setPerson(Person person, ref string message)
         {
             PersonLocal p = personLocalFromPerson(person);
             new PersonControl().setPerson(ref p, ref message);
-            return null;
+            return personLocalToPerson(p);
         }
 
         public Person personLocalToPerson(PersonLocal person)
         {
-            return null;
+            Person p = new Person();
+            p.address = person.address;
+            p.city = person.city;
+            p.email = person.email;
+            p.id = person.id;
+            p.login = person.login;
+            p.name = person.name;
+            p.password = person.password;
+            p.phone = person.phone;
+            p.surname = person.surname;
+            p.zipCode = person.zipCode;
+            if(person.company != null)
+            {
+                p.company = new Company();
+                p.company.name = person.company.name;
+                p.company.description = person.company.description;
+                p.company.link = person.company.link;
+            }
+            return p;
         }
 
         public PersonLocal personLocalFromPerson(Person person)
@@ -41,10 +63,19 @@ namespace ServiceLayer
             p.phone = person.phone;
             p.surname = person.surname;
             p.zipCode = person.zipCode;
-            p.company.description = person.company.description;
-            p.company.link = person.company.link;
-            p.company.name = person.company.name;
+            if (person.company != null)
+            {
+                p.company = new CompanyLocal();
+                p.company.name = person.company.name;
+                p.company.description = person.company.description;
+                p.company.link = person.company.link;
+            }
             return p;
+        }
+
+        public bool updatePerson(Person person, ref string message)
+        {
+            return new PersonControl().updatePerson(personLocalFromPerson(person), ref message);
         }
     }
 }

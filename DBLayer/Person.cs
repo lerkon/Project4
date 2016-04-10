@@ -17,7 +17,7 @@ namespace DBLayer
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Person()
         {
-            this.Companies = new HashSet<Company>();
+            this.Items = new HashSet<Item>();
         }
     
         public int id { get; set; }
@@ -32,7 +32,8 @@ namespace DBLayer
         public string password { get; set; }
         public string salt { get; set; }
     
+        public virtual Company Company { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Company> Companies { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

@@ -5,10 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class MasterPage : System.Web.UI.MasterPage
+namespace WebClient
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class MasterPage : System.Web.UI.MasterPage
     {
-
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["person"] == null)
+                login.Text = "  Login";
+            else
+                login.Text = "  Logout";
+        }
     }
 }

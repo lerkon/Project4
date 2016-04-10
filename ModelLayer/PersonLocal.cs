@@ -21,9 +21,6 @@ namespace ModelLayer
         public string phone { get; set; }
         public string city { get; set; }
         public string address { get; set; }
-
         public PersonLocal() { }
-        //itemsSold = new List<Item>();
-        //itemsBought = new List<Item>();
     }
 }

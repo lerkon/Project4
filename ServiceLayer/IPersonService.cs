@@ -4,7 +4,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using ModelLayer;
 
 namespace ServiceLayer
 {
@@ -18,6 +17,10 @@ namespace ServiceLayer
         [OperationContract]
         [FaultContract(typeof(PersonFault))]
         Person setPerson(Person person, ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(PersonFault))]
+        bool updatePerson(Person person, ref string message);
     }
 
     [DataContract]
@@ -47,8 +50,8 @@ namespace ServiceLayer
         public string address { get; set; }
         [DataMember]
         public Company company { get; set; }
-        //private List<Item> itemsSold;
-        //private List<Item> itemsBought;
+        [DataMember]
+        public List<Item> itemsSold { get; set; }
     }
 
     [DataContract]

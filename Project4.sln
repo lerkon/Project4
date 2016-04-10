@@ -3,28 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebClient", "WebClient\", "{4D0C4D73-B422-4341-8922-7C7E4E27A392}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_52458"
-		Debug.AspNetCompiler.PhysicalPath = "WebClient\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52458\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_52458"
-		Release.AspNetCompiler.PhysicalPath = "WebClient\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52458\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "52458"
-		SlnRelativePath = "WebClient\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBLayer", "DBLayer\DBLayer.csproj", "{9A3F5DEE-5773-4B1E-BE5E-7964E8560804}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlLayer", "ControlLayer\ControlLayer.csproj", "{58EF5607-ADFD-4943-9599-756883E9F81F}"
@@ -33,16 +11,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelLayer", "ModelLayer\Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{4545FE77-3C1D-412D-A188-B73414BE8C7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient", "WebClient\WebClient.csproj", "{35668C86-F3A8-4DA2-85A1-488041DAA9B4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4545FE77-3C1D-412D-A188-B73414BE8C7E} = {4545FE77-3C1D-412D-A188-B73414BE8C7E}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4D0C4D73-B422-4341-8922-7C7E4E27A392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D0C4D73-B422-4341-8922-7C7E4E27A392}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D0C4D73-B422-4341-8922-7C7E4E27A392}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D0C4D73-B422-4341-8922-7C7E4E27A392}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{9A3F5DEE-5773-4B1E-BE5E-7964E8560804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A3F5DEE-5773-4B1E-BE5E-7964E8560804}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A3F5DEE-5773-4B1E-BE5E-7964E8560804}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,6 +38,10 @@ Global
 		{4545FE77-3C1D-412D-A188-B73414BE8C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4545FE77-3C1D-412D-A188-B73414BE8C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4545FE77-3C1D-412D-A188-B73414BE8C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35668C86-F3A8-4DA2-85A1-488041DAA9B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35668C86-F3A8-4DA2-85A1-488041DAA9B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35668C86-F3A8-4DA2-85A1-488041DAA9B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35668C86-F3A8-4DA2-85A1-488041DAA9B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="40889127-531c-4f9f-8328-9d04ee5cab35" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/ItemService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="6a56e063-2872-497a-b472-2286714a239c" SourceId="1" SourceUrl="http://localhost:8733/ItemService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="a5848e4a-d36e-436d-a2f1-5856197c14bb" SourceId="1" SourceUrl="http://localhost:8733/ItemService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="71e57f6f-8c09-4320-a340-e539975f2fd7" SourceId="1" SourceUrl="http://localhost:8733/ItemService/mex" />
+    <MetadataFile FileName="ServiceLayer.xsd" MetadataType="Schema" ID="c6149346-403d-4564-8b72-d5e03cb214c6" SourceId="1" SourceUrl="http://localhost:8733/ItemService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="bad4641b-e07e-49b9-834b-8d8b498d5882" SourceId="1" SourceUrl="http://localhost:8733/ItemService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

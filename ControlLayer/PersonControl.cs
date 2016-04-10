@@ -13,7 +13,7 @@ namespace ControlLayer
     {
         public PersonLocal login(string login, string password, ref string message)
         {
-            PersonLocal p = new Password().login(login, password);
+            PersonLocal p = new Password().login(login, password, ref message);
             if (p != null)
                 return p;
             else
@@ -26,6 +26,14 @@ namespace ControlLayer
         public bool setPerson(ref PersonLocal person, ref string message)
         {
             bool ok = new PersonDB().setPerson(ref person);
+            if (ok != true)
+                message = "Try once again.";
+            return ok;
+        }
+
+        public bool updatePerson(PersonLocal person, ref string message)
+        {
+            bool ok = new PersonDB().updatePerson(person);
             if (ok != true)
                 message = "Try once again.";
             return ok;

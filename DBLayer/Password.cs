@@ -11,14 +11,14 @@ namespace DataLayer
 {
     public class Password
     {
-        public PersonLocal login(string login, string password)
+        public PersonLocal login(string login, string password, ref string message)
         {
             string[] dbData = getPasswordSaltDB(login);
             if (dbData != null)
             {
                 if (comparePasswords(password, dbData[0], dbData[1]) == true)
                 {
-                    return new PersonDB().getPerson(int.Parse(dbData[1]));
+                    return new PersonDB().getPerson(int.Parse(dbData[2]));
                 }
                 else
                     return null;
@@ -30,7 +30,7 @@ namespace DataLayer
         private string[] getPasswordSaltDB(string login)
         {
             string[] data = null;
-            using (var enities = new dmaj0914_2Sem_5Entities())
+            using (var enities = new dmaj0914_2Sem_5Entities1())
             {
                 var person = enities.People.Where(a => a.login == login).FirstOrDefault();
                 if (person != null)

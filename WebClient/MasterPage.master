@@ -1,16 +1,15 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="WebClient.MasterPage" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <style>
         #categories {
             position: fixed;
@@ -66,8 +65,10 @@
                     <li><a href="#">Page 3</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span>My profile</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                    <li><a href="./Sell.aspx"><span class="glyphicon glyphicon-user"></span>Sell</a></li>
+                    <li><a href="./MyProfile.aspx"><span class="glyphicon glyphicon-user"></span>My profile</a></li>
+                    <li><a href="./Login.aspx"><span class="glyphicon glyphicon-log-in"></span>
+                        <asp:Literal ID="login" runat="server" /></a></li>
                     <li><a href="#" id="icon1a"><span class="glyphicon glyphicon"></span>
                         <img src="Icons/Basket.png" id="icon1b" /></a></li>
                 </ul>
@@ -110,9 +111,11 @@
             </div>
         </div>
     </div>
-
-        <div id="contentPanel">
+    <form id="form1" runat="server">
+        <div id="contentPanel" runat="server">
+            <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
         </div>
+    </form>
 </body>
 </html>
