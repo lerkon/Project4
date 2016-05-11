@@ -45,12 +45,12 @@ namespace WebClient
             i.stockRemained = i.stock;
             i.endAuction = Convert.ToDateTime(date.Text);
             i.startAuction = DateTime.Today;
-            p.itemsSold = new Item[1] { i };
             if (Session["pics"] != null)
             {
                 i.img = (byte[][])Session["pics"];
                 Session["pics"] = null;
             }
+            p.itemsSold = new Item[1] { i };
             bool ok = new ItemServiceClient().setItem(p, ref message);
         }
 
