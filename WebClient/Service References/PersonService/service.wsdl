@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PersonService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ServiceLayer" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPersonService_login_InputMessage">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_login_PersonFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q1:PersonFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_setPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:setPerson" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_setPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_setPerson_PersonFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q2:PersonFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_updatePerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatePerson" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_updatePerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatePersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_updatePerson_PersonFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q3:PersonFault" />
+  </wsdl:message>
+  <wsdl:portType name="IPersonService">
+    <wsdl:operation name="login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/login" message="tns:IPersonService_login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/loginResponse" message="tns:IPersonService_login_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPersonService/loginPersonFaultFault" name="PersonFaultFault" message="tns:IPersonService_login_PersonFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/setPerson" message="tns:IPersonService_setPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/setPersonResponse" message="tns:IPersonService_setPerson_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPersonService/setPersonPersonFaultFault" name="PersonFaultFault" message="tns:IPersonService_setPerson_PersonFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/updatePerson" message="tns:IPersonService_updatePerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/updatePersonResponse" message="tns:IPersonService_updatePerson_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPersonService/updatePersonPersonFaultFault" name="PersonFaultFault" message="tns:IPersonService_updatePerson_PersonFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPersonService" type="tns:IPersonService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/IPersonService/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PersonFaultFault">
+        <soap:fault use="literal" name="PersonFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setPerson">
+      <soap:operation soapAction="http://tempuri.org/IPersonService/setPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PersonFaultFault">
+        <soap:fault use="literal" name="PersonFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePerson">
+      <soap:operation soapAction="http://tempuri.org/IPersonService/updatePerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PersonFaultFault">
+        <soap:fault use="literal" name="PersonFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PersonService">
+    <wsdl:port name="BasicHttpBinding_IPersonService" binding="tns:BasicHttpBinding_IPersonService">
+      <soap:address location="http://localhost:8733/PersonService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
