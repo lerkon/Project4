@@ -59,19 +59,17 @@ namespace DBLayer
                 p.phone = person.phone;
                 p.surname = person.surname;
                 p.zipCode = person.zipCode;
+                var c = enities.Companies.Where(a => a.personId == p.id).FirstOrDefault();
+                if (c != null && person.company != null)
+                    ok = new CompanyDB().updateCompany(person);
+                else if (c != null && person.company == null)
+                    ok = new CompanyDB().deleteCompany(person);
+                else if (c == null && person.company != null)
+                    ok = new CompanyDB().setCompany(person);
+                else if (c == null && person.company == null)
+                    ok = true;
                 if (enities.SaveChanges() != 0)
-                {
-                    var c = enities.Companies.Where(a => a.personId == p.id).FirstOrDefault();
-                    if (c != null && person.company != null)
-                        ok = new CompanyDB().updateCompany(person);
-                    else if (c != null && person.company == null)
-                        ok = new CompanyDB().deleteCompany(person);
-                    else if (c == null && person.company != null)
-                        ok = new CompanyDB().setCompany(person);
-                    else if (c == null && person.company == null)
-                        ok = true;
                     return true;
-                }
                 else
                     return ok;
             }
