@@ -24,7 +24,14 @@ namespace WebClient
             p.password = password.Text;
             p.phone = phone.Text;
             p.surname = surname.Text;
-            p.zipCode = int.Parse(zipCode.Text);
+            try
+            {
+                p.zipCode = int.Parse(zipCode.Text);
+            }
+            catch
+            {
+                p.zipCode = 0;
+            }
             p.city = "aaa";
             p.address = address.Text;
             p.email = email.Text;
@@ -37,6 +44,7 @@ namespace WebClient
                 p.company = c;
             }
             Person p2 = new PersonServiceClient().setPerson(p, ref message);
+            Server.Transfer("MyProfile.aspx", true);
         }
     }
 }

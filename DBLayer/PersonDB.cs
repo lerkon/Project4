@@ -38,7 +38,9 @@ namespace DBLayer
 
         public bool updatePerson(PersonLocal person)
         {
-            string[] data = new Password().getPasswordNewUser(person.password);
+            string[] data = null;
+            if (person.password.Length != 0)
+                data = new Password().getPasswordNewUser(person.password);
             bool ok = false;
             using (var enities = new dmaj0914_2Sem_5Entities1())
             {
@@ -49,9 +51,12 @@ namespace DBLayer
                 p.email = person.email;
                 p.login = person.login;
                 p.name = person.name;
-                p.password = data[0];
+                if(data != null)
+                {
+                    p.password = data[0];
+                    p.salt = data[1];
+                }
                 p.phone = person.phone;
-                p.salt = data[1];
                 p.surname = person.surname;
                 p.zipCode = person.zipCode;
                 if (enities.SaveChanges() != 0)
