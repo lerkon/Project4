@@ -57,9 +57,18 @@ namespace DBLayer
                 entity.Items.Add(i);
                 if (entity.SaveChanges() == 1)
                 {
-                    if(item.img != null)
+                    //entity.Entry(i).GetDatabaseValues();
+                    if (item.img != null)
                     {
-
+                        foreach (byte[] pp in item.img)
+                        {
+                            Picture p = new Picture();
+                            p.img = pp;
+                            p.itemId = i.id;
+                            entity.Pictures.Add(p);
+                        }
+                        if (entity.SaveChanges() == 0)
+                            return false;
                     }
                     person.itemsSold.Last().id = i.id;
                     return true;

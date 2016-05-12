@@ -18,12 +18,14 @@ namespace WebClient
             else
             {
                 sellFrame.Style.Add("display", "");
-                if (!ClientScript.IsStartupScriptRegistered("addCell"))
+                string message = null;
+                var list = new ItemServiceClient().itemsSold(translate(), ref message);
+                if (!ClientScript.IsStartupScriptRegistered("addCell") && list != null)
                 {
-                    string message = null;
-                    PersonService.Person person = (PersonService.Person)Session["person"];
-                    List<Item> list = new ItemServiceClient().itemsSold(translate(), ref message).ToList();
-                    foreach (var i in list)
+                    //string message = null;
+                    //PersonService.Person person = (PersonService.Person)Session["person"];
+                    //List<Item> list = new ItemServiceClient().itemsSold(translate(), ref message).ToList();
+                    foreach (var i in list.ToList())
                     {
                         string cell = string.Format("addCell('{0}','{1}','{2}','{3}','{4}')", i.name,i.price.ToString(),
                             i.stockRemained+"/"+i.stock,i.startAuction.ToShortDateString(), i.endAuction.ToShortDateString());
