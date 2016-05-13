@@ -22,13 +22,14 @@ namespace WebClient
                 var list = new ItemServiceClient().itemsSold(translate(), ref message);
                 if (!ClientScript.IsStartupScriptRegistered("addCell") && list != null)
                 {
-                    //string message = null;
-                    //PersonService.Person person = (PersonService.Person)Session["person"];
-                    //List<Item> list = new ItemServiceClient().itemsSold(translate(), ref message).ToList();
-                    foreach (var i in list.ToList())
+                    foreach (var i in list)
                     {
-                        string cell = string.Format("addCell('{0}','{1}','{2}','{3}','{4}')", i.name,i.price.ToString(),
-                            i.stockRemained+"/"+i.stock,i.startAuction.ToShortDateString(), i.endAuction.ToShortDateString());
+                        string base64String = null;
+                        if (i.img != null)
+                            base64String = Convert.ToBase64String(i.img[0], 0, i.img[0].Length);
+                        string cell = string.Format("addCell('{0}','{1}','{2}','{3}','{4}','{5}')", i.name,i.price.ToString(),
+                            i.stockRemained+"/"+i.stock,i.startAuction.ToShortDateString(), i.endAuction.ToShortDateString(),
+                            "data:image/png;base64," + base64String);
                         Page.ClientScript.RegisterStartupScript(this.GetType(), null, cell, true);
                     }
                 }

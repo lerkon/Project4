@@ -18,10 +18,18 @@
                 todayHighlight: true
             }).datepicker('update', new Date());;
         });
-        function addCell(a, b, c, d, e) {
+        function addCell(a, b, c, d, e, f) {
             var tab = document.getElementById("addCell");
             var tr = document.createElement("tr");
             tab.appendChild(tr);
+            var td0 = document.createElement("td");
+            var img = document.createElement("img");
+            img.setAttribute("src", f);
+            img.setAttribute("height", "50");
+            img.setAttribute("width", "50");
+            img.setAttribute("alt", "Cinque Terre");
+            td0.appendChild(img);
+            tr.appendChild(td0);
             var td1 = document.createElement("td");
             td1.innerHTML = a;
             tr.appendChild(td1);
@@ -123,6 +131,7 @@
                 <table id="example" class="table table-striped table-bordered" width="100%" style="text-align: center;">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Amount</th>
@@ -132,6 +141,7 @@
                     </thead>
                     <tfoot style="display: none;">
                         <tr>
+                            <th></th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Amount</th>
@@ -141,6 +151,7 @@
                     </tfoot>
                     <tbody id="addCell">
                         <tr style="display: none;">
+                            <td>61</td>
                             <td style="vertical-align: middle;">
                                 <img src="Icons/Basket.png" id="icon1b" />aaa</td>
                             <td style="vertical-align: middle;">System Architect</td>
