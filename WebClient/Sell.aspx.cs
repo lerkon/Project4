@@ -18,6 +18,10 @@ namespace WebClient
             else
             {
                 sellFrame.Style.Add("display", "");
+                bigPicture.ImageUrl = "~/Icons/Picture.png";
+                smallPicture1.ImageUrl = "~/Icons/Picture.png";
+                smallPicture2.ImageUrl = "~/Icons/Picture.png";
+                smallPicture3.ImageUrl = "~/Icons/Picture.png";
                 string message = null;
                 var list = new ItemServiceClient().itemsSold(translate(), ref message);
                 if (!ClientScript.IsStartupScriptRegistered("addCell") && list != null)
@@ -46,7 +50,7 @@ namespace WebClient
             i.price = int.Parse(price.Text);
             i.stock = int.Parse(amount.Text);
             i.stockRemained = i.stock;
-            i.endAuction = Convert.ToDateTime(date.Text);
+            i.endAuction = Convert.ToDateTime(date.Text.Substring(3, 2) + "/" + date.Text.Substring(0, 2) + "/" + date.Text.Substring(6, 4));
             i.startAuction = DateTime.Today;
             if (Session["pics"] != null)
             {

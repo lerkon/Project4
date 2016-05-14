@@ -77,7 +77,7 @@
                         <asp:Image runat="server" ID="bigPicture" class="img-rounded" alt="Cinque Terre" Width="172" Height="150" />
                         <div>
                             <div style="display: inline-block;">
-                                <a href="Icons/Picture.png" class="thumbnail">
+                                <a class="thumbnail">
                                     <asp:Image runat="server" ID="smallPicture1" alt="Cinque Terre" Style="width: 40px; height: 40px" />
                                 </a>
                             </div>
