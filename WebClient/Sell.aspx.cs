@@ -13,31 +13,10 @@ namespace WebClient
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["person"] == null)
-                infoFrame.Style.Add("display", "");
-            else
-            {
-                sellFrame.Style.Add("display", "");
-                bigPicture.ImageUrl = "~/Icons/Picture.png";
-                smallPicture1.ImageUrl = "~/Icons/Picture.png";
-                smallPicture2.ImageUrl = "~/Icons/Picture.png";
-                smallPicture3.ImageUrl = "~/Icons/Picture.png";
-                string message = null;
-                var list = new ItemServiceClient().itemsSold(translate(), ref message);
-                if (!ClientScript.IsStartupScriptRegistered("addCell") && list != null)
-                {
-                    foreach (var i in list)
-                    {
-                        string base64String = null;
-                        if (i.img != null)
-                            base64String = Convert.ToBase64String(i.img[0], 0, i.img[0].Length);
-                        string cell = string.Format("addCell('{0}','{1}','{2}','{3}','{4}','{5}')", i.name,i.price.ToString(),
-                            i.stockRemained+"/"+i.stock,i.startAuction.ToShortDateString(), i.endAuction.ToShortDateString(),
-                            "data:image/png;base64," + base64String);
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), null, cell, true);
-                    }
-                }
-            }
+            bigPicture.ImageUrl = "~/Icons/Picture.png";
+            smallPicture1.ImageUrl = "~/Icons/Picture.png";
+            smallPicture2.ImageUrl = "~/Icons/Picture.png";
+            smallPicture3.ImageUrl = "~/Icons/Picture.png";
         }
 
         protected void sell(object sender, EventArgs e)
@@ -50,8 +29,9 @@ namespace WebClient
             i.price = int.Parse(price.Text);
             i.stock = int.Parse(amount.Text);
             i.stockRemained = i.stock;
-            i.endAuction = Convert.ToDateTime(date.Text.Substring(3, 2) + "/" + date.Text.Substring(0, 2) + "/" + date.Text.Substring(6, 4));
+            i.endAuction = Convert.ToDateTime(date.Text);//Convert.ToDateTime(date.Text.Substring(3, 2) + "/" + date.Text.Substring(0, 2) + "/" + date.Text.Substring(6, 4));
             i.startAuction = DateTime.Today;
+            i.category = category.Text;
             if (Session["pics"] != null)
             {
                 i.img = (byte[][])Session["pics"];

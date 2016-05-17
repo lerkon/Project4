@@ -28,6 +28,7 @@
           <Property Name="startAuction" Type="datetime" Nullable="false" />
           <Property Name="endAuction" Type="datetime" Nullable="false" />
           <Property Name="rowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
@@ -254,6 +255,7 @@
           <NavigationProperty Name="Person" Relationship="dmaj0914_2Sem_5Model.b" FromRole="Item" ToRole="Person" />
           <NavigationProperty Name="Pictures" Relationship="dmaj0914_2Sem_5Model.c" FromRole="Item" ToRole="Picture" />
           <Property Name="rowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+          <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Picture">
           <Key>
@@ -335,6 +337,7 @@
           <EntitySetMapping Name="Items">
             <EntityTypeMapping TypeName="dmaj0914_2Sem_5Model.Item">
               <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="category" ColumnName="category" />
                 <ScalarProperty Name="rowVersion" ColumnName="rowVersion" />
                 <ScalarProperty Name="endAuction" ColumnName="endAuction" />
                 <ScalarProperty Name="startAuction" ColumnName="startAuction" />

@@ -12,9 +12,18 @@ namespace WebClient
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["person"] == null)
-                login.Text = "  Login";
+            {
+                Log.Text = "  Login";
+                RegisterProfile.Text = "  Register";
+            }
             else
-                login.Text = "  Logout";
+            {
+                Log.Text = "  Logout";
+                RegisterProfile.Text = "  Profile";
+                boughtt.Style.Add("display", "");
+                selll.Style.Add("display", "");
+                soldd.Style.Add("display", "");
+            }
         }
     }
 }

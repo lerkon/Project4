@@ -21,9 +21,13 @@ namespace DBLayer
                     ItemLocal item = new ItemLocal();
                     if(pic.FirstOrDefault() != null)
                     {
-                        item.img = new List<byte[]>();
+                        item.img = item.img = new byte[pic.LongCount()][];
+                        int ii = 0;
                         foreach (var img in pic)
-                            item.img.Add(img.img);
+                        {
+                            item.img[ii] = img.img;
+                            ii++;
+                        }
                     }
                     item.id = id;
                     item.description = i.description;
@@ -33,6 +37,7 @@ namespace DBLayer
                     item.startAuction = i.startAuction;
                     item.stock = i.stock;
                     item.stockRemained = i.stockRemained;
+                    item.category = i.category;
                     return item;
                 }
             }
@@ -53,11 +58,11 @@ namespace DBLayer
                     stock = item.stock,
                     stockRemained = item.stockRemained,
                     personId = person.id,
+                    category = item.category,
                 };
                 entity.Items.Add(i);
                 if (entity.SaveChanges() == 1)
                 {
-                    //entity.Entry(i).GetDatabaseValues();
                     if (item.img != null)
                     {
                         foreach (byte[] pp in item.img)
@@ -92,9 +97,8 @@ namespace DBLayer
                         ItemLocal item = new ItemLocal();
                         if (pic.FirstOrDefault() != null)
                         {
-                            item.img = new List<byte[]>();
-                            foreach (var img in pic)
-                                item.img.Add(img.img);
+                            item.img = new byte[1][];
+                            item.img[0] = pic.FirstOrDefault().img;
                         }
                         item.id = i.id;
                         item.description = i.description;
@@ -104,6 +108,7 @@ namespace DBLayer
                         item.startAuction = i.startAuction;
                         item.stock = i.stock;
                         item.stockRemained = i.stockRemained;
+                        item.category = i.category;
                         itemList.Add(item);
                     }
                     person.itemsSold = itemList;

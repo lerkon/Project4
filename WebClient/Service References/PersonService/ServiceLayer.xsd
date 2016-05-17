@@ -36,6 +36,7 @@
   <xs:complexType name="Item">
     <xs:sequence>
       <xs:element minOccurs="0" name="FaultMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="category" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="endAuction" type="xs:dateTime" />
       <xs:element minOccurs="0" name="id" type="xs:int" />

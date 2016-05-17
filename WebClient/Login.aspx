@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         #div1 { /* bring your own prefixes */
-            width: 400px;
+            width: 300px;
+            background-color: #f5f5f5;
+            margin-left: 30%;
         }
 
         #h4_1 {
@@ -26,6 +28,7 @@
             if (result == null)
                 window.location = "MainPage.aspx";
             else {
+                document.getElementById("infoFrame").style.display = "";
                 var message = document.getElementById("message");
                 message.innerHTML = result;
             }
@@ -36,28 +39,26 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container" id="div1">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 id="h4_1">Login</h4>
-            </div>
-            <div class="panel-body">
-                <div class="panel-body" id="div2">
-                    <div class="form-group">
-                        <label for="usr">Username</label>
-                        <input class="form-control" id="username" type="text" />
-                    </div>
-                    <div class="form-group" style="margin-bottom: 0px;">
-                        <label for="pwd">Password</label>
-                        <input class="form-control" id="password" type="password" />
-                    </div>
-                    <div style="text-align: right;">
-                        <asp:HyperLink NavigateUrl="Register.aspx" Text="Register" runat="server" />
-                    </div>
-                    <asp:Button runat="server" OnClientClick="login();return false;" Text="Log in" CssClass="btn btn-success" />
-                    <div style="margin-top: 10px;">
-                        <p id="message" class="label label-warning"></p>
-                    </div>
+    <div id="div1">
+        <div class="panel-heading" style="padding-top:10px; padding-bottom:10px">
+            <h4 id="h4_1">Login</h4>
+        </div>
+        <div class="panel-body">
+            <div class="panel-body" id="div2">
+                <div class="form-group">
+                    <label for="usr">Username</label>
+                    <input class="form-control" id="username" type="text" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0px;">
+                    <label for="pwd">Password</label>
+                    <input class="form-control" id="password" type="password" />
+                </div>
+                <div style="text-align: right; margin-right: 45px;">
+                    <asp:HyperLink NavigateUrl="Register.aspx" Text="Register" runat="server" />
+                </div>
+                <asp:Button runat="server" OnClientClick="login();return false;" Text="Log in" CssClass="btn btn-success" />
+                <div style="margin-top: 10px; display: none;" id="infoFrame">
+                    <p id="message" class="label label-warning"></p>
                 </div>
             </div>
         </div>

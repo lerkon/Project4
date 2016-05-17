@@ -24,6 +24,7 @@ namespace ServiceLayer
             i.stockRemained = item.stockRemained;
             i.rowVersion = item.rowVersion;
             i.img = item.img;
+            i.category = item.category;
             return i;
         }
 
@@ -40,6 +41,7 @@ namespace ServiceLayer
             i.stockRemained = item.stockRemained;
             i.rowVersion = item.rowVersion;
             i.img = item.img;
+            i.category = item.category;
             return i;
         }
 

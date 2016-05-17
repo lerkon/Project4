@@ -340,6 +340,9 @@ namespace WebClient.PersonService {
         private string FaultMessageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string categoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string descriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -388,6 +391,19 @@ namespace WebClient.PersonService {
                 if ((object.ReferenceEquals(this.FaultMessageField, value) != true)) {
                     this.FaultMessageField = value;
                     this.RaisePropertyChanged("FaultMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string category {
+            get {
+                return this.categoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.categoryField, value) != true)) {
+                    this.categoryField = value;
+                    this.RaisePropertyChanged("category");
                 }
             }
         }

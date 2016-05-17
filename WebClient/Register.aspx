@@ -11,12 +11,12 @@
     <div class="container" style="width: 496px;">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4 id="h4_1">Register</h4>
+                <h4 id="h4_1"><asp:Literal ID="title" runat="server" /></h4>
             </div>
             <div class="panel-body">
                 <div class="panel-body" id="div2">
                     <div>
-                        <div class="form-group" style="display: inline-block; width: 200px;">
+                        <div class="form-group" style="display: inline-block; width: 200px; margin-right:25px">
                             <label for="usr">Login</label>
                             <asp:TextBox runat="server" ID="login" CssClass="form-control" />
                         </div>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="form-group" style="display: inline-block; width: 200px;">
+                        <div class="form-group" style="display: inline-block; width: 200px; margin-right:25px"">
                             <label for="usr">Name</label>
                             <asp:TextBox runat="server" ID="name" CssClass="form-control" />
                         </div>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="form-group" style="display: inline-block; width: 200px;">
+                        <div class="form-group" style="display: inline-block; width: 200px; margin-right:25px"">
                             <label for="usr">Email</label>
                             <asp:TextBox runat="server" ID="email" CssClass="form-control" />
                         </div>
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="form-group" style="display: inline-block; width: 200px;">
+                        <div class="form-group" style="display: inline-block; width: 200px; margin-right:25px"">
                             <label for="usr">Address</label>
                             <asp:TextBox runat="server" ID="address" CssClass="form-control" />
                         </div>
@@ -56,12 +56,11 @@
                         </div>
                     </div>
                     <div>
-                        <div class="checkbox" style="margin-top: 0px;">
-                            <label>
-                                <input type="checkbox" onchange="toggleCheckbox()" />I have a company.</label>
+                        <div style="margin-top: 0px;">
+                            <asp:CheckBox ID="checkBox" runat="server" OnCheckedChanged="tick" AutoPostBack="true" Text="&nbsp I have a company." />
                         </div>
-                        <div id="box" style="display: none; margin-bottom: 15px;">
-                            <div class="form-group" style="display: inline-block; width: 200px;">
+                        <div id="box" style="display: none; margin-bottom: 15px;" runat="server">
+                            <div class="form-group" style="display: inline-block; width: 200px; margin-right:25px"">
                                 <label for="usr">Company name</label>
                                 <asp:TextBox runat="server" ID="companyName" CssClass="form-control" />
                             </div>
@@ -69,15 +68,15 @@
                                 <label for="usr">Website</label>
                                 <asp:TextBox runat="server" ID="website" CssClass="form-control" />
                             </div>
-                            <div class="form-group" style="display: inline-block; width: 400px; margin-bottom: 0px;">
+                            <div class="form-group" margin-bottom: 0px;">
                                 <label for="usr">Description</label>
-                                <asp:TextBox ID="description" TextMode="multiline" Rows="5" runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="description" TextMode="multiline" Rows="5" runat="server" Width="435px" />
                             </div>
                         </div>
                     </div>
-                    <asp:Button Style="width: 400px;" runat="server" OnClick="registerr" Text="Continue" CssClass="btn btn-success" />
-                    <div style="margin-top: 10px;">
-                        <p id="message" class="label label-warning"></p>
+                    <asp:Button Style="width: 450px;" runat="server" OnClick="decide" Text="Continue" CssClass="btn btn-success" />
+                    <div style="margin-top: 10px; display: none;" id="labelBox" runat="server">
+                        <asp:Label ID="label" runat="server" CssClass="label label-warning"></asp:Label>
                     </div>
                 </div>
             </div>
