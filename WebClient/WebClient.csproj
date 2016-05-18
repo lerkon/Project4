@@ -68,11 +68,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bootstrap\css\bootstrap-responsive.min.css" />
-    <Content Include="bootstrap\css\bootstrap.min.css" />
-    <Content Include="bootstrap\img\glyphicons-halflings-white.png" />
-    <Content Include="bootstrap\img\glyphicons-halflings.png" />
-    <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="packages.config" />
     <Content Include="MasterPage.Master" />
     <None Include="Service References\PersonService\Arrays.xsd">
@@ -175,7 +170,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="MainPage.aspx" />
-    <Content Include="MyProfile.aspx" />
+    <Content Include="Sold.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Sell.aspx" />
     <Content Include="Service References\ItemService\WebClient.ItemService.getItemResponse.datasource">
@@ -202,127 +197,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="themes\amelia\bootstrap.css" />
-    <Content Include="themes\amelia\bootstrap.min.css" />
-    <Content Include="themes\bootshop\bootstrap.min.css" />
-    <Content Include="themes\businessltd\bootstrap.min.css" />
-    <Content Include="themes\cerulean\bootstrap.min.css" />
-    <Content Include="themes\css\base.css" />
-    <Content Include="themes\css\bootstrap-responsive.min.css" />
-    <Content Include="themes\css\font-awesome-ie7.css" />
-    <Content Include="themes\css\font-awesome.css" />
-    <Content Include="themes\cyborg\bootstrap.min.css" />
-    <Content Include="themes\font\fontawesome-webfont.svg" />
-    <Content Include="themes\images\carousel\1.png" />
-    <Content Include="themes\images\carousel\2.png" />
-    <Content Include="themes\images\carousel\3.png" />
-    <Content Include="themes\images\carousel\4.png" />
-    <Content Include="themes\images\carousel\5.png" />
-    <Content Include="themes\images\carousel\6.png" />
-    <Content Include="themes\images\carousel\7.png" />
-    <Content Include="themes\images\facebook.png" />
-    <Content Include="themes\images\headerRepeat.png" />
-    <Content Include="themes\images\ico-cart.png" />
-    <Content Include="themes\images\ico\apple-touch-icon-114-precomposed.png" />
-    <Content Include="themes\images\ico\apple-touch-icon-144-precomposed.png" />
-    <Content Include="themes\images\ico\apple-touch-icon-57-precomposed.png" />
-    <Content Include="themes\images\ico\apple-touch-icon-72-precomposed.png" />
-    <Content Include="themes\images\ico\favicon.ico" />
-    <Content Include="themes\images\lightbox\Close.png" />
-    <Content Include="themes\images\lightbox\lightbox-blank.gif" />
-    <Content Include="themes\images\lightbox\lightbox-btn-close.gif" />
-    <Content Include="themes\images\lightbox\lightbox-btn-next.gif" />
-    <Content Include="themes\images\lightbox\lightbox-btn-prev.gif" />
-    <Content Include="themes\images\lightbox\lightbox-ico-loading.gif" />
-    <Content Include="themes\images\logo.png" />
-    <Content Include="themes\images\new.png" />
-    <Content Include="themes\images\payment_methods.png" />
-    <Content Include="themes\images\products\1.jpg" />
-    <Content Include="themes\images\products\10.jpg" />
-    <Content Include="themes\images\products\11.jpg" />
-    <Content Include="themes\images\products\12.jpg" />
-    <Content Include="themes\images\products\13.jpg" />
-    <Content Include="themes\images\products\2.jpg" />
-    <Content Include="themes\images\products\3.jpg" />
-    <Content Include="themes\images\products\4.jpg" />
-    <Content Include="themes\images\products\5.jpg" />
-    <Content Include="themes\images\products\6.jpg" />
-    <Content Include="themes\images\products\7.jpg" />
-    <Content Include="themes\images\products\8.jpg" />
-    <Content Include="themes\images\products\9.jpg" />
-    <Content Include="themes\images\products\b1.jpg" />
-    <Content Include="themes\images\products\b2.jpg" />
-    <Content Include="themes\images\products\b3.jpg" />
-    <Content Include="themes\images\products\b4.jpg" />
-    <Content Include="themes\images\products\kindle.png" />
-    <Content Include="themes\images\products\large\3.jpg" />
-    <Content Include="themes\images\products\large\f1.jpg" />
-    <Content Include="themes\images\products\large\f2.jpg" />
-    <Content Include="themes\images\products\large\f3.jpg" />
-    <Content Include="themes\images\products\panasonic.jpg" />
-    <Content Include="themes\images\search.png" />
-    <Content Include="themes\images\tabRepeatInactive.png" />
-    <Content Include="themes\images\twitter.png" />
-    <Content Include="themes\images\youtube.png" />
-    <Content Include="themes\img\glyphicons-halflings-white.png" />
-    <Content Include="themes\img\glyphicons-halflings.png" />
-    <Content Include="themes\journal\bootstrap.min.css" />
-    <Content Include="themes\js\bootshop.js" />
-    <Content Include="themes\js\bootstrap.min.js" />
-    <Content Include="themes\js\google-code-prettify\prettify.css" />
-    <Content Include="themes\js\google-code-prettify\prettify.js" />
-    <Content Include="themes\js\jquery.js" />
-    <Content Include="themes\js\jquery.lightbox-0.5.js" />
-    <Content Include="themes\js\less.js" />
-    <Content Include="themes\readable\bootstrap.min.css" />
-    <Content Include="themes\simplex\bootstrap.min.css" />
-    <Content Include="themes\slate\bootstrap.min.css" />
-    <Content Include="themes\spacelab\bootstrap.min.css" />
-    <Content Include="themes\spruce\bootstrap.css" />
-    <Content Include="themes\spruce\bootstrap.min.css" />
-    <Content Include="themes\superhero\bootstrap.min.css" />
-    <Content Include="themes\switch\images\clr\amelia.png" />
-    <Content Include="themes\switch\images\clr\bootshop.png" />
-    <Content Include="themes\switch\images\clr\businessltd.png" />
-    <Content Include="themes\switch\images\clr\cerulean.png" />
-    <Content Include="themes\switch\images\clr\cyborg.png" />
-    <Content Include="themes\switch\images\clr\journal.png" />
-    <Content Include="themes\switch\images\clr\readable.png" />
-    <Content Include="themes\switch\images\clr\simplex.png" />
-    <Content Include="themes\switch\images\clr\slate.png" />
-    <Content Include="themes\switch\images\clr\spacelab.png" />
-    <Content Include="themes\switch\images\clr\spruce.png" />
-    <Content Include="themes\switch\images\clr\superhero.png" />
-    <Content Include="themes\switch\images\clr\united.png" />
-    <Content Include="themes\switch\images\hideme.png" />
-    <Content Include="themes\switch\images\pattern\pattern1.png" />
-    <Content Include="themes\switch\images\pattern\pattern10.png" />
-    <Content Include="themes\switch\images\pattern\pattern11.png" />
-    <Content Include="themes\switch\images\pattern\pattern12.png" />
-    <Content Include="themes\switch\images\pattern\pattern13.png" />
-    <Content Include="themes\switch\images\pattern\pattern14.png" />
-    <Content Include="themes\switch\images\pattern\pattern15.png" />
-    <Content Include="themes\switch\images\pattern\pattern16.png" />
-    <Content Include="themes\switch\images\pattern\pattern16~.png" />
-    <Content Include="themes\switch\images\pattern\pattern17.png" />
-    <Content Include="themes\switch\images\pattern\pattern17~.png" />
-    <Content Include="themes\switch\images\pattern\pattern18.png" />
-    <Content Include="themes\switch\images\pattern\pattern19.png" />
-    <Content Include="themes\switch\images\pattern\pattern19~.png" />
-    <Content Include="themes\switch\images\pattern\pattern2.png" />
-    <Content Include="themes\switch\images\pattern\pattern20.png" />
-    <Content Include="themes\switch\images\pattern\pattern20~.png" />
-    <Content Include="themes\switch\images\pattern\pattern3.png" />
-    <Content Include="themes\switch\images\pattern\pattern4.png" />
-    <Content Include="themes\switch\images\pattern\pattern5.png" />
-    <Content Include="themes\switch\images\pattern\pattern6.png" />
-    <Content Include="themes\switch\images\pattern\pattern7.png" />
-    <Content Include="themes\switch\images\pattern\pattern8.png" />
-    <Content Include="themes\switch\images\pattern\pattern9.png" />
-    <Content Include="themes\switch\images\styleTgl.png" />
-    <Content Include="themes\switch\theamswitcher.js" />
-    <Content Include="themes\switch\themeswitch.css" />
-    <Content Include="themes\united\bootstrap.min.css" />
     <Content Include="Web.config" />
     <Content Include="Service References\PersonService\WebClient.PersonService.loginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -362,12 +236,12 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
-    <Compile Include="MyProfile.aspx.cs">
-      <DependentUpon>MyProfile.aspx</DependentUpon>
+    <Compile Include="Sold.aspx.cs">
+      <DependentUpon>Sold.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MyProfile.aspx.designer.cs">
-      <DependentUpon>MyProfile.aspx</DependentUpon>
+    <Compile Include="Sold.aspx.designer.cs">
+      <DependentUpon>Sold.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
