@@ -74,7 +74,8 @@ namespace WebClient
                 p.company = c;
             }
             Person p2 = new PersonServiceClient().setPerson(p, ref message);
-            Server.Transfer("Login.aspx", true);
+            //Server.Transfer("Login.aspx", true);
+            Response.Redirect("./Login.aspx");
         }
 
         private void update(object sender, EventArgs e)

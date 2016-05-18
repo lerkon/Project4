@@ -27,6 +27,8 @@
 </head>
 
 <body>
+    <form id="form2" runat="server">
+        <asp:ScriptManager ID="Scriptt" runat="server" EnablePageMethods="true"></asp:ScriptManager>
     <div id="header">
         <div class="container">
             <!-- Navbar ================================================== -->
@@ -39,7 +41,6 @@
                 <div class="navbar-inner">
                     <a class="brand" href="index.html">
                         <img src="themes/images/logo.png" alt="Bootsshop" /></a>
-                    <form class="form-inline navbar-search" method="post" action="products.html">
                         <input id="srchFld" class="srchTxt" type="text" />
                         <select class="srchTxt">
                             <option>All</option>
@@ -50,7 +51,6 @@
                             <option>BOOKS & ENTERTAINMENTS </option>
                         </select>
                         <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
-                    </form>
                     <ul id="topMenu" class="nav pull-right">
                         <li runat="server" id="boughtt" style="display: none;"><a href="./Bought.aspx">Bought</a></li>
                         <li runat="server" id="selll" style="display: none;"><a href="./Sell.aspx">Sell</a></li>
@@ -86,12 +86,16 @@
                             <img src="themes/images/ico-cart.png" alt="cart">3 Items in your cart  <span class="badge badge-warning pull-right">$155.00</span></a>
                     </div>
                     <ul id="sideManu" class="nav nav-tabs nav-stacked">
-                        <li class="subMenu open"><a>ELECTRONICS [230]</a>
+                        <li class="subMenu open"><a>ELECTRONICS</a>
                             <ul>
-                                <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>Cameras (100) </a></li>
-                                <li><a href="products.html"><i class="icon-chevron-right"></i>Computers, Tablets & laptop (30)</a></li>
-                                <li><a href="products.html"><i class="icon-chevron-right"></i>Mobile Phone (80)</a></li>
-                                <li><a href="products.html"><i class="icon-chevron-right"></i>Sound & Vision (15)</a></li>
+                                <li>
+                                    <asp:LinkButton ID="electronic1" Text="Cameras" OnClick="category" runat="server" />
+                                <li>
+                                    <asp:LinkButton ID="electronic2" Text="Computers, Tablets & laptop" OnClick="category" runat="server" />
+                                <li>
+                                    <asp:LinkButton ID="electronic3" Text="Phones" OnClick="category" runat="server" />
+                                <li>
+                                    <asp:LinkButton ID="electronic4" Text="Sound" OnClick="category" runat="server" />
                             </ul>
                         </li>
                         <li class="subMenu"><a>CLOTHES [840] </a>
@@ -125,13 +129,9 @@
                 </div>
                 <!-- Sidebar end=============================================== -->
                 <div class="span9">
-                    <form id="form1" runat="server">
                         <div id="contentPanel" runat="server">
-                            <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
                             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
                         </div>
-                    </form>
-
                 </div>
             </div>
         </div>
@@ -187,5 +187,6 @@
     <script src="themes/js/jquery.lightbox-0.5.js"></script>
 
     <span id="themesBtn"></span>
+        </form>
 </body>
 </html>

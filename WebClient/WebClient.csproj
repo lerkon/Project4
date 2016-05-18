@@ -73,6 +73,7 @@
     <Content Include="bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="bootstrap\img\glyphicons-halflings.png" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="Buy.aspx" />
     <Content Include="packages.config" />
     <Content Include="MasterPage.Master" />
     <None Include="Service References\PersonService\Arrays.xsd">
@@ -338,6 +339,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buy.aspx.cs">
+      <DependentUpon>Buy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Buy.aspx.designer.cs">
+      <DependentUpon>Buy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

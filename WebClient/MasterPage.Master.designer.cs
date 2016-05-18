@@ -22,6 +22,24 @@ namespace WebClient {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
+        /// form2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
+        
+        /// <summary>
+        /// Scriptt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager Scriptt;
+        
+        /// <summary>
         /// boughtt control.
         /// </summary>
         /// <remarks>
@@ -67,13 +85,40 @@ namespace WebClient {
         protected global::System.Web.UI.WebControls.Literal Log;
         
         /// <summary>
-        /// form1 control.
+        /// electronic1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.LinkButton electronic1;
+        
+        /// <summary>
+        /// electronic2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton electronic2;
+        
+        /// <summary>
+        /// electronic3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton electronic3;
+        
+        /// <summary>
+        /// electronic4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton electronic4;
         
         /// <summary>
         /// contentPanel control.
@@ -83,15 +128,6 @@ namespace WebClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl contentPanel;
-        
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

@@ -25,5 +25,12 @@ namespace WebClient
                 soldd.Style.Add("display", "");
             }
         }
+
+        protected void category(object sender, EventArgs e)
+        {
+            LinkButton l = (LinkButton)(sender);
+            Session["category"] = l.Text;
+            Response.Redirect("./Buy.aspx");
+        }
     }
 }
