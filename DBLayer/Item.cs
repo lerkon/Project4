@@ -30,6 +30,7 @@ namespace DBLayer
         public System.DateTime startAuction { get; set; }
         public System.DateTime endAuction { get; set; }
         public byte[] rowVersion { get; set; }
+        public string category { get; set; }
     
         public virtual Person Person { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

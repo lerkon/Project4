@@ -10,6 +10,6 @@
 namespace WebClient {
     
     
-    public partial class MainPage {
+    public partial class MyProfile {
     }
 }

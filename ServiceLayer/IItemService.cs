@@ -47,7 +47,9 @@ namespace ServiceLayer
         [DataMember]
         public string description { get; set; }
         [DataMember]
-        public List<byte[]> img { get; set; }
+        public byte[][] img { get; set; }
+        [DataMember]
+        public string category { get; set; }
     }
 
     [DataContract]
