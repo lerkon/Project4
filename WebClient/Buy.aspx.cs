@@ -11,8 +11,7 @@ namespace WebClient
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            addProduct.InnerHtml = "<div class='span2'>";
-            addProduct.InnerHtml += "<br/>Booya";
+
         }
     }
 }
