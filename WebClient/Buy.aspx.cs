@@ -18,7 +18,7 @@ namespace WebClient
             category.InnerHtml = (string)Session["category"];
             string s = null;
             if (list == null)
-                s = "<small class='pull-right'>available products: 0</small>";
+                s = "<small class='pull-right'>Available products: 0</small>";
             else
                 s = "<small class='pull-right'>Available products: " + list.Count() + "</small>";
             category.Controls.Add(new LiteralControl(s));
@@ -65,7 +65,7 @@ namespace WebClient
             div5.Attributes.Add("class", "span3 alignR");
             div1.Controls.Add(div5);
             HtmlGenericControl h2 = new HtmlGenericControl("h3");
-            h2.InnerHtml = price.ToString();
+            h2.InnerHtml = price+" KR";
             div5.Controls.Add(h2);
             HtmlGenericControl p2 = new HtmlGenericControl("p");
             p2.InnerHtml = "Stock: "+ stockRemained + "/"+ stock;
@@ -74,16 +74,16 @@ namespace WebClient
             lb.Click += new EventHandler(addProductCart);
             lb.CssClass = "btn btn-large btn-primary";
             lb.Text = "Add to cart";
-            lb.CommandArgument = id.ToString();
+            lb.CommandArgument = id.ToString()+";"+ price;
             div5.Controls.Add(lb);
         }
 
         protected void addProductCart(object sender, EventArgs e)
         {
             if (Session["productId"] == null)
-                Session["productId"] = new List<string>();
-            LinkButton l = (LinkButton)(sender);
-            Session["productId"] = l.CommandArgument;
+                Session["productId"] = new List<int[]>();
+            string[] arg = ((LinkButton)(sender)).CommandArgument.Split(';');
+            ((List<int[]>)Session["productId"]).Add(new int[2] { Int32.Parse(arg[0]), Int32.Parse(arg[1]) });
             //Response.Redirect("./Buy.aspx");
             ((MasterPage)this.Master).changeCart();
         }

@@ -74,6 +74,7 @@
     <Content Include="bootstrap\img\glyphicons-halflings.png" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="Buy.aspx" />
+    <Content Include="Cart.aspx" />
     <Content Include="packages.config" />
     <Content Include="MasterPage.Master" />
     <Content Include="Service References\ItemService\WebClient.ItemService.getItemsCategoryResponse.datasource">
@@ -348,6 +349,13 @@
     </Compile>
     <Compile Include="Buy.aspx.designer.cs">
       <DependentUpon>Buy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

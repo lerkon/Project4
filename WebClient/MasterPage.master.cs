@@ -37,9 +37,23 @@ namespace WebClient
         public void changeCart()
         {
             myCart.Controls.Clear();
-            myCart.Controls.Add(new LiteralControl(
-                "<img src='themes/images/ico-cart.png' alt='cart'>3 Items in your cart  <span class='badge badge-warning pull-right'>$155.00</span>"
+            if(Session["productId"] == null)
+            {
+                myCart.Controls.Add(new LiteralControl(
+                "<img src='themes/images/ico-cart.png' alt='cart'>0 Items in your cart <span class='badge badge-warning pull-right'>0 KR</span>"
                 ));
+            }
+            else
+            {
+                int price = 0;
+                foreach (var i in (List<int[]>)Session["productId"])
+                    price += i[1];
+                myCart.Controls.Add(new LiteralControl(
+                "<img src='themes/images/ico-cart.png' alt='cart'>"
+                + ((List<int[]>)Session["productId"]).Count() +
+                " Items in your cart  <span class='badge badge-warning pull-right'>"+price+" KR</span>"
+                ));
+            }
         }
     }
 }
