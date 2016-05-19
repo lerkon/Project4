@@ -71,18 +71,21 @@ namespace WebClient
             p2.InnerHtml = "Stock: "+ stockRemained + "/"+ stock;
             div5.Controls.Add(p2);
             LinkButton lb = new LinkButton();
-            lb.Click += new EventHandler(redirect);
+            lb.Click += new EventHandler(addProductCart);
             lb.CssClass = "btn btn-large btn-primary";
             lb.Text = "Add to cart";
             lb.CommandArgument = id.ToString();
             div5.Controls.Add(lb);
         }
 
-        protected void redirect(object sender, EventArgs e)
+        protected void addProductCart(object sender, EventArgs e)
         {
+            if (Session["productId"] == null)
+                Session["productId"] = new List<string>();
             LinkButton l = (LinkButton)(sender);
             Session["productId"] = l.CommandArgument;
-            Response.Redirect("./Buy.aspx");
+            //Response.Redirect("./Buy.aspx");
+            ((MasterPage)this.Master).changeCart();
         }
     }
 }

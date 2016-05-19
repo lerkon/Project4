@@ -11,9 +11,7 @@ namespace WebClient
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            myCart.Controls.Add(new LiteralControl(
-                "<img src='themes/images/ico-cart.png' alt='cart'>3 Items in your cart  <span class='badge badge-warning pull-right'>$155.00</span>"
-                ));
+            changeCart();
             if (Session["person"] == null)
             {
                 Log.Text = "  Login";
@@ -38,7 +36,10 @@ namespace WebClient
 
         public void changeCart()
         {
-
+            myCart.Controls.Clear();
+            myCart.Controls.Add(new LiteralControl(
+                "<img src='themes/images/ico-cart.png' alt='cart'>3 Items in your cart  <span class='badge badge-warning pull-right'>$155.00</span>"
+                ));
         }
     }
 }
