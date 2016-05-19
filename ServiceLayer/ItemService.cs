@@ -71,5 +71,18 @@ namespace ServiceLayer
             }
             return null;
         }
+
+        public List<Item> getItemsCategory(string category, ref string message)
+        {
+            List<ItemLocal> i = new ItemControl().getItemsCategory(category);
+            if (i != null)
+            {
+                List<Item> list = new List<Item>();
+                foreach (var item in i)
+                    list.Add(itemLocalToItem(item));
+                return list;
+            }
+            return null;
+        }
     }
 }

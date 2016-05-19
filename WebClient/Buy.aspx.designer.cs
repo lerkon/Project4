@@ -13,6 +13,15 @@ namespace WebClient {
     public partial class Buy {
         
         /// <summary>
+        /// category control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl category;
+        
+        /// <summary>
         /// addProduct control.
         /// </summary>
         /// <remarks>

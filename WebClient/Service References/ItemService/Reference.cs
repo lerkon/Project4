@@ -620,6 +620,14 @@ namespace WebClient.ItemService {
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/itemsSold", ReplyAction="http://tempuri.org/IItemService/itemsSoldResponse")]
         System.Threading.Tasks.Task<WebClient.ItemService.itemsSoldResponse> itemsSoldAsync(WebClient.ItemService.itemsSoldRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/getItemsCategory", ReplyAction="http://tempuri.org/IItemService/getItemsCategoryResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WebClient.ItemService.ItemFault), Action="http://tempuri.org/IItemService/getItemsCategoryItemFaultFault", Name="ItemFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebClient.ItemService.getItemsCategoryResponse getItemsCategory(WebClient.ItemService.getItemsCategoryRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/getItemsCategory", ReplyAction="http://tempuri.org/IItemService/getItemsCategoryResponse")]
+        System.Threading.Tasks.Task<WebClient.ItemService.getItemsCategoryResponse> getItemsCategoryAsync(WebClient.ItemService.getItemsCategoryRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -742,6 +750,46 @@ namespace WebClient.ItemService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getItemsCategory", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getItemsCategoryRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string category;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public getItemsCategoryRequest() {
+        }
+        
+        public getItemsCategoryRequest(string category, string message) {
+            this.category = category;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getItemsCategoryResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getItemsCategoryResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ItemService.Item[] getItemsCategoryResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public getItemsCategoryResponse() {
+        }
+        
+        public getItemsCategoryResponse(WebClient.ItemService.Item[] getItemsCategoryResult, string message) {
+            this.getItemsCategoryResult = getItemsCategoryResult;
+            this.message = message;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IItemServiceChannel : WebClient.ItemService.IItemService, System.ServiceModel.IClientChannel {
     }
@@ -821,6 +869,24 @@ namespace WebClient.ItemService {
         
         public System.Threading.Tasks.Task<WebClient.ItemService.itemsSoldResponse> itemsSoldAsync(WebClient.ItemService.itemsSoldRequest request) {
             return base.Channel.itemsSoldAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ItemService.getItemsCategoryResponse WebClient.ItemService.IItemService.getItemsCategory(WebClient.ItemService.getItemsCategoryRequest request) {
+            return base.Channel.getItemsCategory(request);
+        }
+        
+        public WebClient.ItemService.Item[] getItemsCategory(string category, ref string message) {
+            WebClient.ItemService.getItemsCategoryRequest inValue = new WebClient.ItemService.getItemsCategoryRequest();
+            inValue.category = category;
+            inValue.message = message;
+            WebClient.ItemService.getItemsCategoryResponse retVal = ((WebClient.ItemService.IItemService)(this)).getItemsCategory(inValue);
+            message = retVal.message;
+            return retVal.getItemsCategoryResult;
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ItemService.getItemsCategoryResponse> getItemsCategoryAsync(WebClient.ItemService.getItemsCategoryRequest request) {
+            return base.Channel.getItemsCategoryAsync(request);
         }
     }
 }

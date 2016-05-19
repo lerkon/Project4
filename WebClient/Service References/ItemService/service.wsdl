@@ -35,6 +35,15 @@
   <wsdl:message name="IItemService_itemsSold_ItemFaultFault_FaultMessage">
     <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q3:ItemFault" />
   </wsdl:message>
+  <wsdl:message name="IItemService_getItemsCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:getItemsCategory" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_getItemsCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getItemsCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_getItemsCategory_ItemFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q4:ItemFault" />
+  </wsdl:message>
   <wsdl:portType name="IItemService">
     <wsdl:operation name="getItem">
       <wsdl:input wsaw:Action="http://tempuri.org/IItemService/getItem" message="tns:IItemService_getItem_InputMessage" />
@@ -50,6 +59,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IItemService/itemsSold" message="tns:IItemService_itemsSold_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IItemService/itemsSoldResponse" message="tns:IItemService_itemsSold_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IItemService/itemsSoldItemFaultFault" name="ItemFaultFault" message="tns:IItemService_itemsSold_ItemFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getItemsCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IItemService/getItemsCategory" message="tns:IItemService_getItemsCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IItemService/getItemsCategoryResponse" message="tns:IItemService_getItemsCategory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IItemService/getItemsCategoryItemFaultFault" name="ItemFaultFault" message="tns:IItemService_getItemsCategory_ItemFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IItemService" type="tns:IItemService">
@@ -80,6 +94,18 @@
     </wsdl:operation>
     <wsdl:operation name="itemsSold">
       <soap:operation soapAction="http://tempuri.org/IItemService/itemsSold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ItemFaultFault">
+        <soap:fault use="literal" name="ItemFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getItemsCategory">
+      <soap:operation soapAction="http://tempuri.org/IItemService/getItemsCategory" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

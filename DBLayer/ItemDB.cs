@@ -115,5 +115,39 @@ namespace DBLayer
                 }
             }
         }
+
+        public List<ItemLocal> getItemsCategory(string category)
+        {
+            using (var entity = new dmaj0914_2Sem_5Entities1())
+            {
+                var items = entity.Items.Where(a => a.category == category);
+                if (items.FirstOrDefault() != null)
+                {
+                    List<ItemLocal> itemList = new List<ItemLocal>();
+                    foreach (var i in items)
+                    {
+                        var pic = entity.Pictures.Where(a => a.itemId == i.id);
+                        ItemLocal item = new ItemLocal();
+                        if (pic.FirstOrDefault() != null)
+                        {
+                            item.img = new byte[1][];
+                            item.img[0] = pic.FirstOrDefault().img;
+                        }
+                        item.id = i.id;
+                        item.description = i.description;
+                        item.endAuction = i.endAuction;
+                        item.name = i.name;
+                        item.price = i.price;
+                        item.startAuction = i.startAuction;
+                        item.stock = i.stock;
+                        item.stockRemained = i.stockRemained;
+                        item.category = i.category;
+                        itemList.Add(item);
+                    }
+                    return itemList;
+                }
+            }
+            return null;
+        }
     }
 }

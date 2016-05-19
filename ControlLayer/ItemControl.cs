@@ -31,5 +31,10 @@ namespace ControlLayer
         {
             new ItemDB().itemsSold(ref person);
         }
-   }
+
+        public List<ItemLocal> getItemsCategory(string category)
+        {
+            return new ItemDB().getItemsCategory(category);
+        }
+    }
 }

@@ -21,6 +21,10 @@ namespace ServiceLayer
         [OperationContract]
         [FaultContract(typeof(ItemFault))]
         List<Item> itemsSold(Person person, ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(ItemFault))]
+        List<Item> getItemsCategory(string category, ref string message);
     }
 
     [DataContract]
