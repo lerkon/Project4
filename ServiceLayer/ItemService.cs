@@ -45,6 +45,28 @@ namespace ServiceLayer
             return i;
         }
 
+        public OrderLocal OrderLocalFromOrder(Order item)
+        {
+            OrderLocal i = new OrderLocal();
+            i.amount = item.amount;
+            i.buyDay = item.buyDay;
+            i.buyer = new PersonService().personLocalFromPerson(item.buyer);
+            i.id = item.id;
+            i.totalPrice = item.totalPrice;
+            return i;
+        }
+
+        public Order OrderFromOrderLocal(OrderLocal item)
+        {
+            Order i = new Order();
+            i.amount = item.amount;
+            i.buyDay = item.buyDay;
+            //i.buyer = new PersonService().personLocalFromPerson(item.buyer);
+            i.id = item.id;
+            i.totalPrice = item.totalPrice;
+            return i;
+        }
+
         public Item getItem(int id, ref string message)
         {
             throw new NotImplementedException();
@@ -83,6 +105,58 @@ namespace ServiceLayer
                 return list;
             }
             return null;
+        }
+
+        public List<Item> getItemsCart(int[] idList, ref string message)
+        {
+            List<ItemLocal> i = new ItemControl().getItemsCart(idList);
+            if (i != null)
+            {
+                List<Item> list = new List<Item>();
+                foreach (var item in i)
+                    list.Add(itemLocalToItem(item));
+                return list;
+            }
+            return null;
+        }
+
+        public List<Order> getOrders(Person person, ref string message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool setOrder(List<Item> orders, ref string message)
+        {
+            List<ItemLocal> list = new List<ItemLocal>();
+            foreach (var i in orders)
+            {
+                OrderLocal ol = OrderLocalFromOrder(i.orders.FirstOrDefault());
+                List<OrderLocal> localList = new List<OrderLocal>();
+                localList.Add(ol);
+                ItemLocal il = itemLocalFromItem(i);
+                il.orders = localList;
+                list.Add(il);
+            }
+            return new ItemControl().setOrders(list, ref message);
+        }
+
+        public void bought(ref Person person, ref string message)
+        {
+            PersonLocal p = new PersonService().personLocalFromPerson(person);
+            new ItemControl().bought(ref p);
+            if (p.itemsBought != null)
+            {
+                List<Item> list = new List<Item>();
+                foreach (var item in p.itemsBought)
+                {
+                    List<Order> listO = new List<Order>();
+                    foreach (var order in item.orders)
+                        listO.Add(OrderFromOrderLocal(order));
+                    list.Add(itemLocalToItem(item));
+                    list.Last().orders = listO;
+                }
+                person.itemsBought = list;
+            }
         }
     }
 }

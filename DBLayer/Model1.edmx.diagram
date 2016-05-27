@@ -5,13 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="92ac6ee6afa14f3f87fdd64a6916fa43" Name="Diagram1" ZoomLevel="98">
-        <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Company" Width="1.5" PointX="2.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Person" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Company" Width="1.5" PointX="0.625" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Person" Width="1.5" PointX="2.875" PointY="4.375" IsExpanded="true" />
         <AssociationConnector Association="dmaj0914_2Sem_5Model.a" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Item" Width="1.5" PointX="4.625" PointY="1" />
-        <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Picture" Width="1.5" PointX="6.5" PointY="1" />
+        <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Item" Width="1.5" PointX="4.875" PointY="4.375" />
+        <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Picture" Width="1.5" PointX="7" PointY="4.375" />
         <AssociationConnector Association="dmaj0914_2Sem_5Model.b" />
         <AssociationConnector Association="dmaj0914_2Sem_5Model.c" />
+        <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Orderr" Width="1.5" PointX="3.875" PointY="1.125" />
+        <AssociationConnector Association="dmaj0914_2Sem_5Model.d" />
+        <AssociationConnector Association="dmaj0914_2Sem_5Model.e" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -31,6 +31,7 @@ namespace DBLayer
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<Picture> Pictures { get; set; }
+        public virtual DbSet<Orderr> Orderrs { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

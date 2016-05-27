@@ -25,6 +25,22 @@ namespace ServiceLayer
         [OperationContract]
         [FaultContract(typeof(ItemFault))]
         List<Item> getItemsCategory(string category, ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(ItemFault))]
+        List<Item> getItemsCart(int[] idList, ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(ItemFault))]
+        List<Order> getOrders(Person person, ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(ItemFault))]
+        bool setOrder(List<Item> orders, ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(ItemFault))]
+        void bought(ref Person person, ref string message);
     }
 
     [DataContract]
@@ -49,11 +65,30 @@ namespace ServiceLayer
         [DataMember]
         public DateTime endAuction { get; set; }
         [DataMember]
+        public List<Order> orders { get; set; }
+        [DataMember]
         public string description { get; set; }
         [DataMember]
         public byte[][] img { get; set; }
         [DataMember]
         public string category { get; set; }
+    }
+
+    [DataContract]
+    public class Order
+    {
+        [DataMember]
+        public string FaultMessage { get; set; }
+        [DataMember]
+        public int id { get; set; }
+        [DataMember]
+        public int amount { get; set; }
+        [DataMember]
+        public int totalPrice { get; set; }
+        [DataMember]
+        public Person buyer { get; set; }
+        [DataMember]
+        public DateTime buyDay { get; set; }
     }
 
     [DataContract]

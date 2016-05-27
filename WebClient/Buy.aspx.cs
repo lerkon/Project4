@@ -65,7 +65,7 @@ namespace WebClient
             div5.Attributes.Add("class", "span3 alignR");
             div1.Controls.Add(div5);
             HtmlGenericControl h2 = new HtmlGenericControl("h3");
-            h2.InnerHtml = price+" KR";
+            h2.InnerHtml = price + " KR";
             div5.Controls.Add(h2);
             HtmlGenericControl p2 = new HtmlGenericControl("p");
             p2.InnerHtml = "Stock: "+ stockRemained + "/"+ stock;
@@ -74,17 +74,23 @@ namespace WebClient
             lb.Click += new EventHandler(addProductCart);
             lb.CssClass = "btn btn-large btn-primary";
             lb.Text = "Add to cart";
-            lb.CommandArgument = id.ToString()+";"+ price;
+            lb.CommandArgument = id + ";"+ price;
             div5.Controls.Add(lb);
         }
 
         protected void addProductCart(object sender, EventArgs e)
         {
+            string[] arg = ((LinkButton)(sender)).CommandArgument.Split(';');
             if (Session["productId"] == null)
                 Session["productId"] = new List<int[]>();
-            string[] arg = ((LinkButton)(sender)).CommandArgument.Split(';');
-            ((List<int[]>)Session["productId"]).Add(new int[2] { Int32.Parse(arg[0]), Int32.Parse(arg[1]) });
-            //Response.Redirect("./Buy.aspx");
+            var amount = ((List<int[]>)Session["productId"]).FindAll(x => x[0] == Int32.Parse(arg[0]));
+            if (amount.SingleOrDefault() != null)
+            {
+                amount.Single()[1] = amount.Single()[1] * 2;
+                amount.Single()[2]++;
+            }
+            else//id,price,amount
+                ((List<int[]>)Session["productId"]).Add(new int[3] { Int32.Parse(arg[0]), Int32.Parse(arg[1]), 1 });
             ((MasterPage)this.Master).changeCart();
         }
     }

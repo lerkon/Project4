@@ -44,6 +44,42 @@
   <wsdl:message name="IItemService_getItemsCategory_ItemFaultFault_FaultMessage">
     <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q4:ItemFault" />
   </wsdl:message>
+  <wsdl:message name="IItemService_getItemsCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:getItemsCart" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_getItemsCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getItemsCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_getItemsCart_ItemFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q5:ItemFault" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_getOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOrders" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_getOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_getOrders_ItemFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q6:ItemFault" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_setOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:setOrder" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_setOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_setOrder_ItemFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q7:ItemFault" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_bought_InputMessage">
+    <wsdl:part name="parameters" element="tns:bought" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_bought_OutputMessage">
+    <wsdl:part name="parameters" element="tns:boughtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_bought_ItemFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q8:ItemFault" />
+  </wsdl:message>
   <wsdl:portType name="IItemService">
     <wsdl:operation name="getItem">
       <wsdl:input wsaw:Action="http://tempuri.org/IItemService/getItem" message="tns:IItemService_getItem_InputMessage" />
@@ -64,6 +100,26 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IItemService/getItemsCategory" message="tns:IItemService_getItemsCategory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IItemService/getItemsCategoryResponse" message="tns:IItemService_getItemsCategory_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IItemService/getItemsCategoryItemFaultFault" name="ItemFaultFault" message="tns:IItemService_getItemsCategory_ItemFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getItemsCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IItemService/getItemsCart" message="tns:IItemService_getItemsCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IItemService/getItemsCartResponse" message="tns:IItemService_getItemsCart_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IItemService/getItemsCartItemFaultFault" name="ItemFaultFault" message="tns:IItemService_getItemsCart_ItemFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IItemService/getOrders" message="tns:IItemService_getOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IItemService/getOrdersResponse" message="tns:IItemService_getOrders_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IItemService/getOrdersItemFaultFault" name="ItemFaultFault" message="tns:IItemService_getOrders_ItemFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IItemService/setOrder" message="tns:IItemService_setOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IItemService/setOrderResponse" message="tns:IItemService_setOrder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IItemService/setOrderItemFaultFault" name="ItemFaultFault" message="tns:IItemService_setOrder_ItemFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="bought">
+      <wsdl:input wsaw:Action="http://tempuri.org/IItemService/bought" message="tns:IItemService_bought_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IItemService/boughtResponse" message="tns:IItemService_bought_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IItemService/boughtItemFaultFault" name="ItemFaultFault" message="tns:IItemService_bought_ItemFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IItemService" type="tns:IItemService">
@@ -106,6 +162,54 @@
     </wsdl:operation>
     <wsdl:operation name="getItemsCategory">
       <soap:operation soapAction="http://tempuri.org/IItemService/getItemsCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ItemFaultFault">
+        <soap:fault use="literal" name="ItemFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getItemsCart">
+      <soap:operation soapAction="http://tempuri.org/IItemService/getItemsCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ItemFaultFault">
+        <soap:fault use="literal" name="ItemFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOrders">
+      <soap:operation soapAction="http://tempuri.org/IItemService/getOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ItemFaultFault">
+        <soap:fault use="literal" name="ItemFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setOrder">
+      <soap:operation soapAction="http://tempuri.org/IItemService/setOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ItemFaultFault">
+        <soap:fault use="literal" name="ItemFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="bought">
+      <soap:operation soapAction="http://tempuri.org/IItemService/bought" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

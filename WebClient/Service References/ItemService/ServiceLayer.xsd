@@ -10,6 +10,7 @@
       <xs:element minOccurs="0" name="id" type="xs:int" />
       <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="img" nillable="true" type="q1:ArrayOfbase64Binary" />
       <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="orders" nillable="true" type="tns:ArrayOfOrder" />
       <xs:element minOccurs="0" name="price" type="xs:int" />
       <xs:element minOccurs="0" name="rowVersion" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="startAuction" type="xs:dateTime" />
@@ -18,12 +19,23 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Item" nillable="true" type="tns:Item" />
-  <xs:complexType name="ItemFault">
+  <xs:complexType name="ArrayOfOrder">
     <xs:sequence>
-      <xs:element minOccurs="0" name="FaultMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Order" nillable="true" type="tns:Order" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ItemFault" nillable="true" type="tns:ItemFault" />
+  <xs:element name="ArrayOfOrder" nillable="true" type="tns:ArrayOfOrder" />
+  <xs:complexType name="Order">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FaultMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="amount" type="xs:int" />
+      <xs:element minOccurs="0" name="buyDay" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="buyer" nillable="true" type="tns:Person" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="totalPrice" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Order" nillable="true" type="tns:Order" />
   <xs:complexType name="Person">
     <xs:sequence>
       <xs:element minOccurs="0" name="FaultMessage" nillable="true" type="xs:string" />
@@ -32,6 +44,7 @@
       <xs:element minOccurs="0" name="company" nillable="true" type="tns:Company" />
       <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="itemsBought" nillable="true" type="tns:ArrayOfItem" />
       <xs:element minOccurs="0" name="itemsSold" nillable="true" type="tns:ArrayOfItem" />
       <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
@@ -56,4 +69,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfItem" nillable="true" type="tns:ArrayOfItem" />
+  <xs:complexType name="ItemFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FaultMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemFault" nillable="true" type="tns:ItemFault" />
 </xs:schema>

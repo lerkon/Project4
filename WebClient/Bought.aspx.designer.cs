@@ -10,7 +10,7 @@
 namespace WebClient {
     
     
-    public partial class Cart {
+    public partial class Bought {
         
         /// <summary>
         /// addCell control.
@@ -20,14 +20,5 @@ namespace WebClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl addCell;
-        
-        /// <summary>
-        /// buyButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton buyButton;
     }
 }

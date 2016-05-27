@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
-        function addCell(a, b, c, d, e, f, g) {
+        function addCell(a, b, c, d, e, f, g, h) {
             var tab = document.getElementById("addCell");
             var tr = document.createElement("tr");
             tab.appendChild(tr);
@@ -15,8 +15,15 @@
             td0.appendChild(img);
             tr.appendChild(td0);
             var td1 = document.createElement("td");
+            td1.id = h;
             td1.innerHTML = a;
             tr.appendChild(td1);
+            //var link = document.createElement("a");
+            //link.href = "./Details.aspx";
+            //link.innerHTML = a;
+            //link.style.color = 'blue';
+            //link.id = h;
+            //td1.appendChild(link);
             var td2 = document.createElement("td");
             td2.innerHTML = b;
             tr.appendChild(td2);

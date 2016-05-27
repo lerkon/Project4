@@ -73,11 +73,31 @@
     <Content Include="bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="bootstrap\img\glyphicons-halflings.png" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="Bought.aspx" />
     <Content Include="Buy.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="packages.config" />
     <Content Include="MasterPage.Master" />
+    <Content Include="ProductDetails.aspx" />
     <Content Include="Service References\ItemService\WebClient.ItemService.getItemsCategoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ItemService\WebClient.ItemService.getItemsCartResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ItemService\WebClient.ItemService.getOrdersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ItemService\WebClient.ItemService.Order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ItemService\WebClient.ItemService.setOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ItemService\WebClient.ItemService.boughtResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ItemService\WebClient.ItemService.Person.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\PersonService\Arrays.xsd">
@@ -343,6 +363,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bought.aspx.cs">
+      <DependentUpon>Bought.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bought.aspx.designer.cs">
+      <DependentUpon>Bought.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Buy.aspx.cs">
       <DependentUpon>Buy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -380,6 +407,13 @@
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.designer.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sold.aspx.cs">
       <DependentUpon>Sold.aspx</DependentUpon>

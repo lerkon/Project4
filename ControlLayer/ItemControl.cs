@@ -36,5 +36,29 @@ namespace ControlLayer
         {
             return new ItemDB().getItemsCategory(category);
         }
+
+        public List<ItemLocal> getItemsCart(int[] idList)
+        {
+            return new ItemDB().getItemsCart(idList);
+        }
+
+        public bool setOrders(List<ItemLocal> orders, ref string message)
+        {
+            bool ok = false;
+            try
+            {
+                ok = new ItemDB().setOrders(orders);
+            }
+            catch (Exception)
+            {
+                message = "Try once again.";
+            }
+            return ok;
+        }
+
+        public void bought(ref PersonLocal person)
+        {
+            new ItemDB().bought(ref person);
+        }
     }
 }

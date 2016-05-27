@@ -21,6 +21,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="personId" Type="int" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="price" Type="int" Nullable="false" />
           <Property Name="stock" Type="int" Nullable="false" />
@@ -28,7 +29,17 @@
           <Property Name="startAuction" Type="datetime" Nullable="false" />
           <Property Name="endAuction" Type="datetime" Nullable="false" />
           <Property Name="rowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
-          <Property Name="category" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Orderr">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="itemId" Type="int" Nullable="false" />
+          <Property Name="personBuyerId" Type="int" Nullable="false" />
+          <Property Name="amount" Type="int" Nullable="false" />
+          <Property Name="totalPrice" Type="int" Nullable="false" />
+          <Property Name="buyDay" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
@@ -69,9 +80,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="b">
-          <End Role="Person" Type="Self.Person" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
           <End Role="Item" Type="Self.Item" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Person">
@@ -92,6 +101,30 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Picture">
+              <PropertyRef Name="itemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="d">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Orderr" Type="Self.Orderr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orderr">
+              <PropertyRef Name="personBuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="e">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Orderr" Type="Self.Orderr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orderr">
               <PropertyRef Name="itemId" />
             </Dependent>
           </ReferentialConstraint>
@@ -130,6 +163,7 @@
         <EntityContainer Name="dmaj0914_2Sem_5ModelStoreContainer">
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orderr" EntityType="Self.Orderr" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="a" Association="Self.a">
@@ -143,6 +177,14 @@
           <AssociationSet Name="c" Association="Self.c">
             <End Role="Item" EntitySet="Item" />
             <End Role="Picture" EntitySet="Picture" />
+          </AssociationSet>
+          <AssociationSet Name="d" Association="Self.d">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Orderr" EntitySet="Orderr" />
+          </AssociationSet>
+          <AssociationSet Name="e" Association="Self.e">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Orderr" EntitySet="Orderr" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -176,6 +218,7 @@
           <Property Name="salt" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Company" Relationship="Self.a" FromRole="Person" ToRole="Company" />
           <NavigationProperty Name="Items" Relationship="dmaj0914_2Sem_5Model.b" FromRole="Person" ToRole="Item" />
+          <NavigationProperty Name="Orderrs" Relationship="dmaj0914_2Sem_5Model.d" FromRole="Person" ToRole="Orderr" />
         </EntityType>
         <Association Name="a">
           <End Role="Person" Type="Self.Person" Multiplicity="1">
@@ -238,6 +281,15 @@
             <End Role="Item" EntitySet="Items" />
             <End Role="Picture" EntitySet="Pictures" />
           </AssociationSet>
+          <EntitySet Name="Orderrs" EntityType="dmaj0914_2Sem_5Model.Orderr" />
+          <AssociationSet Name="d" Association="dmaj0914_2Sem_5Model.d">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Orderr" EntitySet="Orderrs" />
+          </AssociationSet>
+          <AssociationSet Name="e" Association="dmaj0914_2Sem_5Model.e">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Orderr" EntitySet="Orderrs" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Item">
           <Key>
@@ -255,7 +307,8 @@
           <NavigationProperty Name="Person" Relationship="dmaj0914_2Sem_5Model.b" FromRole="Item" ToRole="Person" />
           <NavigationProperty Name="Pictures" Relationship="dmaj0914_2Sem_5Model.c" FromRole="Item" ToRole="Picture" />
           <Property Name="rowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
-          <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Orderrs" Relationship="dmaj0914_2Sem_5Model.e" FromRole="Item" ToRole="Orderr" />
         </EntityType>
         <EntityType Name="Picture">
           <Key>
@@ -290,6 +343,43 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Picture">
+              <PropertyRef Name="itemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Orderr">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itemId" Type="Int32" Nullable="false" />
+          <Property Name="personBuyerId" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Int32" Nullable="false" />
+          <Property Name="totalPrice" Type="Int32" Nullable="false" />
+          <Property Name="buyDay" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Person" Relationship="dmaj0914_2Sem_5Model.d" FromRole="Orderr" ToRole="Person" />
+          <NavigationProperty Name="Item" Relationship="dmaj0914_2Sem_5Model.e" FromRole="Orderr" ToRole="Item" />
+        </EntityType>
+        <Association Name="d">
+          <End Type="dmaj0914_2Sem_5Model.Person" Role="Person" Multiplicity="1" />
+          <End Type="dmaj0914_2Sem_5Model.Orderr" Role="Orderr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orderr">
+              <PropertyRef Name="personBuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="e">
+          <End Type="dmaj0914_2Sem_5Model.Item" Role="Item" Multiplicity="1" />
+          <End Type="dmaj0914_2Sem_5Model.Orderr" Role="Orderr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orderr">
               <PropertyRef Name="itemId" />
             </Dependent>
           </ReferentialConstraint>
@@ -356,6 +446,18 @@
               <MappingFragment StoreEntitySet="Picture">
                 <ScalarProperty Name="itemId" ColumnName="itemId" />
                 <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orderrs">
+            <EntityTypeMapping TypeName="dmaj0914_2Sem_5Model.Orderr">
+              <MappingFragment StoreEntitySet="Orderr">
+                <ScalarProperty Name="buyDay" ColumnName="buyDay" />
+                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="personBuyerId" ColumnName="personBuyerId" />
+                <ScalarProperty Name="itemId" ColumnName="itemId" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

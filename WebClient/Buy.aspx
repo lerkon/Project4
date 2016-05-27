@@ -5,6 +5,5 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h3 id="category" runat="server"></h3>
     <hr class="soft" />
-    <div id="addProduct" runat="server">
-    </div>
+    <div id="addProduct" runat="server"></div>
 </asp:Content>

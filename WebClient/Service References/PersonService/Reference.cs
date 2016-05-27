@@ -41,6 +41,9 @@ namespace WebClient.PersonService {
         private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebClient.PersonService.Item[] itemsBoughtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WebClient.PersonService.Item[] itemsSoldField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -145,6 +148,19 @@ namespace WebClient.PersonService {
                 if ((this.idField.Equals(value) != true)) {
                     this.idField = value;
                     this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebClient.PersonService.Item[] itemsBought {
+            get {
+                return this.itemsBoughtField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.itemsBoughtField, value) != true)) {
+                    this.itemsBoughtField = value;
+                    this.RaisePropertyChanged("itemsBought");
                 }
             }
         }
@@ -358,6 +374,9 @@ namespace WebClient.PersonService {
         private string nameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebClient.PersonService.Order[] ordersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int priceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -474,6 +493,19 @@ namespace WebClient.PersonService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebClient.PersonService.Order[] orders {
+            get {
+                return this.ordersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ordersField, value) != true)) {
+                    this.ordersField = value;
+                    this.RaisePropertyChanged("orders");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int price {
             get {
                 return this.priceField;
@@ -534,6 +566,131 @@ namespace WebClient.PersonService {
                 if ((this.stockRemainedField.Equals(value) != true)) {
                     this.stockRemainedField = value;
                     this.RaisePropertyChanged("stockRemained");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Order", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+    [System.SerializableAttribute()]
+    public partial class Order : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FaultMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int amountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime buyDayField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebClient.PersonService.Person buyerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int totalPriceField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FaultMessage {
+            get {
+                return this.FaultMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FaultMessageField, value) != true)) {
+                    this.FaultMessageField = value;
+                    this.RaisePropertyChanged("FaultMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                if ((this.amountField.Equals(value) != true)) {
+                    this.amountField = value;
+                    this.RaisePropertyChanged("amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime buyDay {
+            get {
+                return this.buyDayField;
+            }
+            set {
+                if ((this.buyDayField.Equals(value) != true)) {
+                    this.buyDayField = value;
+                    this.RaisePropertyChanged("buyDay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebClient.PersonService.Person buyer {
+            get {
+                return this.buyerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.buyerField, value) != true)) {
+                    this.buyerField = value;
+                    this.RaisePropertyChanged("buyer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int totalPrice {
+            get {
+                return this.totalPriceField;
+            }
+            set {
+                if ((this.totalPriceField.Equals(value) != true)) {
+                    this.totalPriceField = value;
+                    this.RaisePropertyChanged("totalPrice");
                 }
             }
         }

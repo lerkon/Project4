@@ -18,6 +18,7 @@ namespace DBLayer
         public Item()
         {
             this.Pictures = new HashSet<Picture>();
+            this.Orderrs = new HashSet<Orderr>();
         }
     
         public int id { get; set; }
@@ -35,5 +36,7 @@ namespace DBLayer
         public virtual Person Person { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Picture> Pictures { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Orderr> Orderrs { get; set; }
     }
 }

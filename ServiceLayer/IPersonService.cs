@@ -52,6 +52,8 @@ namespace ServiceLayer
         public Company company { get; set; }
         [DataMember]
         public List<Item> itemsSold { get; set; }
+        [DataMember]
+        public List<Item> itemsBought { get; set; }
     }
 
     [DataContract]

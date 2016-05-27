@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using WebClient.ItemService;
 
@@ -24,9 +26,21 @@ namespace WebClient
                         base64String = Convert.ToBase64String(i.img[0], 0, i.img[0].Length);
                     cell += string.Format("addCell('{0}','{1}','{2}','{3}','{4}','{5}','{6}');", i.name, i.price.ToString(),
                         i.stockRemained + "/" + i.stock, i.startAuction.ToShortDateString(), i.endAuction.ToShortDateString(),
-                        "data:image/png;base64," + base64String, i.category);
+                        "data:image/png;base64," + base64String, i.category, i.id);
                 }
                 Page.ClientScript.RegisterStartupScript(this.GetType(), null, cell, true);
+                //foreach (var i in list)
+                //{
+                    //LinkButton l = new LinkButton();
+                    //l.Click += new EventHandler(redirect);
+                    //l.Text = "assdgf";
+                    //Control td = Page.FindControl("addCell");
+                    //td.Controls.Add(l);
+                    //HtmlControl ctrl = addCell;
+                    //ctrl.Controls.Add(l);
+                    //HtmlControl s = FindControl("addCell") as HtmlControl;
+                    //string strValue = Page.Request.b
+                //}
             }
         }
 
@@ -52,6 +66,11 @@ namespace WebClient
                 p.company.link = person.company.link;
             }
             return p;
+        }
+
+        protected void redirect(object sender, EventArgs e)
+        {
+            Session["person"] = ((LinkButton)(sender)).ID;
         }
     }
 }

@@ -45,9 +45,7 @@ namespace WebClient
             }
             else
             {
-                int price = 0;
-                foreach (var i in (List<int[]>)Session["productId"])
-                    price += i[1];
+                var price = ((List<int[]>)Session["productId"]).Sum(x => x[1]);
                 myCart.Controls.Add(new LiteralControl(
                 "<img src='themes/images/ico-cart.png' alt='cart'>"
                 + ((List<int[]>)Session["productId"]).Count() +

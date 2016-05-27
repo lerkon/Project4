@@ -44,6 +44,9 @@ namespace WebClient.ItemService {
         private string nameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebClient.ItemService.Order[] ordersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int priceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -160,6 +163,19 @@ namespace WebClient.ItemService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebClient.ItemService.Order[] orders {
+            get {
+                return this.ordersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ordersField, value) != true)) {
+                    this.ordersField = value;
+                    this.RaisePropertyChanged("orders");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int price {
             get {
                 return this.priceField;
@@ -236,15 +252,30 @@ namespace WebClient.ItemService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ItemFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Order", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
     [System.SerializableAttribute()]
-    public partial class ItemFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Order : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FaultMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int amountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime buyDayField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebClient.ItemService.Person buyerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int totalPriceField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -265,6 +296,71 @@ namespace WebClient.ItemService {
                 if ((object.ReferenceEquals(this.FaultMessageField, value) != true)) {
                     this.FaultMessageField = value;
                     this.RaisePropertyChanged("FaultMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                if ((this.amountField.Equals(value) != true)) {
+                    this.amountField = value;
+                    this.RaisePropertyChanged("amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime buyDay {
+            get {
+                return this.buyDayField;
+            }
+            set {
+                if ((this.buyDayField.Equals(value) != true)) {
+                    this.buyDayField = value;
+                    this.RaisePropertyChanged("buyDay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebClient.ItemService.Person buyer {
+            get {
+                return this.buyerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.buyerField, value) != true)) {
+                    this.buyerField = value;
+                    this.RaisePropertyChanged("buyer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int totalPrice {
+            get {
+                return this.totalPriceField;
+            }
+            set {
+                if ((this.totalPriceField.Equals(value) != true)) {
+                    this.totalPriceField = value;
+                    this.RaisePropertyChanged("totalPrice");
                 }
             }
         }
@@ -305,6 +401,9 @@ namespace WebClient.ItemService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebClient.ItemService.Item[] itemsBoughtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WebClient.ItemService.Item[] itemsSoldField;
@@ -411,6 +510,19 @@ namespace WebClient.ItemService {
                 if ((this.idField.Equals(value) != true)) {
                     this.idField = value;
                     this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebClient.ItemService.Item[] itemsBought {
+            get {
+                return this.itemsBoughtField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.itemsBoughtField, value) != true)) {
+                    this.itemsBoughtField = value;
+                    this.RaisePropertyChanged("itemsBought");
                 }
             }
         }
@@ -593,6 +705,51 @@ namespace WebClient.ItemService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ItemFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+    [System.SerializableAttribute()]
+    public partial class ItemFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FaultMessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FaultMessage {
+            get {
+                return this.FaultMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FaultMessageField, value) != true)) {
+                    this.FaultMessageField = value;
+                    this.RaisePropertyChanged("FaultMessage");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ItemService.IItemService")]
     public interface IItemService {
@@ -628,6 +785,38 @@ namespace WebClient.ItemService {
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/getItemsCategory", ReplyAction="http://tempuri.org/IItemService/getItemsCategoryResponse")]
         System.Threading.Tasks.Task<WebClient.ItemService.getItemsCategoryResponse> getItemsCategoryAsync(WebClient.ItemService.getItemsCategoryRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/getItemsCart", ReplyAction="http://tempuri.org/IItemService/getItemsCartResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WebClient.ItemService.ItemFault), Action="http://tempuri.org/IItemService/getItemsCartItemFaultFault", Name="ItemFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebClient.ItemService.getItemsCartResponse getItemsCart(WebClient.ItemService.getItemsCartRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/getItemsCart", ReplyAction="http://tempuri.org/IItemService/getItemsCartResponse")]
+        System.Threading.Tasks.Task<WebClient.ItemService.getItemsCartResponse> getItemsCartAsync(WebClient.ItemService.getItemsCartRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/getOrders", ReplyAction="http://tempuri.org/IItemService/getOrdersResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WebClient.ItemService.ItemFault), Action="http://tempuri.org/IItemService/getOrdersItemFaultFault", Name="ItemFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebClient.ItemService.getOrdersResponse getOrders(WebClient.ItemService.getOrdersRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/getOrders", ReplyAction="http://tempuri.org/IItemService/getOrdersResponse")]
+        System.Threading.Tasks.Task<WebClient.ItemService.getOrdersResponse> getOrdersAsync(WebClient.ItemService.getOrdersRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/setOrder", ReplyAction="http://tempuri.org/IItemService/setOrderResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WebClient.ItemService.ItemFault), Action="http://tempuri.org/IItemService/setOrderItemFaultFault", Name="ItemFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebClient.ItemService.setOrderResponse setOrder(WebClient.ItemService.setOrderRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/setOrder", ReplyAction="http://tempuri.org/IItemService/setOrderResponse")]
+        System.Threading.Tasks.Task<WebClient.ItemService.setOrderResponse> setOrderAsync(WebClient.ItemService.setOrderRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/bought", ReplyAction="http://tempuri.org/IItemService/boughtResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WebClient.ItemService.ItemFault), Action="http://tempuri.org/IItemService/boughtItemFaultFault", Name="ItemFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebClient.ItemService.boughtResponse bought(WebClient.ItemService.boughtRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/bought", ReplyAction="http://tempuri.org/IItemService/boughtResponse")]
+        System.Threading.Tasks.Task<WebClient.ItemService.boughtResponse> boughtAsync(WebClient.ItemService.boughtRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -790,6 +979,166 @@ namespace WebClient.ItemService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getItemsCart", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getItemsCartRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int[] idList;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public getItemsCartRequest() {
+        }
+        
+        public getItemsCartRequest(int[] idList, string message) {
+            this.idList = idList;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getItemsCartResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getItemsCartResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ItemService.Item[] getItemsCartResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public getItemsCartResponse() {
+        }
+        
+        public getItemsCartResponse(WebClient.ItemService.Item[] getItemsCartResult, string message) {
+            this.getItemsCartResult = getItemsCartResult;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getOrders", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getOrdersRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ItemService.Person person;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public getOrdersRequest() {
+        }
+        
+        public getOrdersRequest(WebClient.ItemService.Person person, string message) {
+            this.person = person;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getOrdersResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getOrdersResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ItemService.Order[] getOrdersResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public getOrdersResponse() {
+        }
+        
+        public getOrdersResponse(WebClient.ItemService.Order[] getOrdersResult, string message) {
+            this.getOrdersResult = getOrdersResult;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="setOrder", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class setOrderRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ItemService.Item[] orders;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public setOrderRequest() {
+        }
+        
+        public setOrderRequest(WebClient.ItemService.Item[] orders, string message) {
+            this.orders = orders;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="setOrderResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class setOrderResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool setOrderResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public setOrderResponse() {
+        }
+        
+        public setOrderResponse(bool setOrderResult, string message) {
+            this.setOrderResult = setOrderResult;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="bought", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class boughtRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ItemService.Person person;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public boughtRequest() {
+        }
+        
+        public boughtRequest(WebClient.ItemService.Person person, string message) {
+            this.person = person;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="boughtResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class boughtResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ItemService.Person person;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public boughtResponse() {
+        }
+        
+        public boughtResponse(WebClient.ItemService.Person person, string message) {
+            this.person = person;
+            this.message = message;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IItemServiceChannel : WebClient.ItemService.IItemService, System.ServiceModel.IClientChannel {
     }
@@ -887,6 +1236,78 @@ namespace WebClient.ItemService {
         
         public System.Threading.Tasks.Task<WebClient.ItemService.getItemsCategoryResponse> getItemsCategoryAsync(WebClient.ItemService.getItemsCategoryRequest request) {
             return base.Channel.getItemsCategoryAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ItemService.getItemsCartResponse WebClient.ItemService.IItemService.getItemsCart(WebClient.ItemService.getItemsCartRequest request) {
+            return base.Channel.getItemsCart(request);
+        }
+        
+        public WebClient.ItemService.Item[] getItemsCart(int[] idList, ref string message) {
+            WebClient.ItemService.getItemsCartRequest inValue = new WebClient.ItemService.getItemsCartRequest();
+            inValue.idList = idList;
+            inValue.message = message;
+            WebClient.ItemService.getItemsCartResponse retVal = ((WebClient.ItemService.IItemService)(this)).getItemsCart(inValue);
+            message = retVal.message;
+            return retVal.getItemsCartResult;
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ItemService.getItemsCartResponse> getItemsCartAsync(WebClient.ItemService.getItemsCartRequest request) {
+            return base.Channel.getItemsCartAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ItemService.getOrdersResponse WebClient.ItemService.IItemService.getOrders(WebClient.ItemService.getOrdersRequest request) {
+            return base.Channel.getOrders(request);
+        }
+        
+        public WebClient.ItemService.Order[] getOrders(WebClient.ItemService.Person person, ref string message) {
+            WebClient.ItemService.getOrdersRequest inValue = new WebClient.ItemService.getOrdersRequest();
+            inValue.person = person;
+            inValue.message = message;
+            WebClient.ItemService.getOrdersResponse retVal = ((WebClient.ItemService.IItemService)(this)).getOrders(inValue);
+            message = retVal.message;
+            return retVal.getOrdersResult;
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ItemService.getOrdersResponse> getOrdersAsync(WebClient.ItemService.getOrdersRequest request) {
+            return base.Channel.getOrdersAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ItemService.setOrderResponse WebClient.ItemService.IItemService.setOrder(WebClient.ItemService.setOrderRequest request) {
+            return base.Channel.setOrder(request);
+        }
+        
+        public bool setOrder(WebClient.ItemService.Item[] orders, ref string message) {
+            WebClient.ItemService.setOrderRequest inValue = new WebClient.ItemService.setOrderRequest();
+            inValue.orders = orders;
+            inValue.message = message;
+            WebClient.ItemService.setOrderResponse retVal = ((WebClient.ItemService.IItemService)(this)).setOrder(inValue);
+            message = retVal.message;
+            return retVal.setOrderResult;
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ItemService.setOrderResponse> setOrderAsync(WebClient.ItemService.setOrderRequest request) {
+            return base.Channel.setOrderAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ItemService.boughtResponse WebClient.ItemService.IItemService.bought(WebClient.ItemService.boughtRequest request) {
+            return base.Channel.bought(request);
+        }
+        
+        public void bought(ref WebClient.ItemService.Person person, ref string message) {
+            WebClient.ItemService.boughtRequest inValue = new WebClient.ItemService.boughtRequest();
+            inValue.person = person;
+            inValue.message = message;
+            WebClient.ItemService.boughtResponse retVal = ((WebClient.ItemService.IItemService)(this)).bought(inValue);
+            person = retVal.person;
+            message = retVal.message;
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ItemService.boughtResponse> boughtAsync(WebClient.ItemService.boughtRequest request) {
+            return base.Channel.boughtAsync(request);
         }
     }
 }
