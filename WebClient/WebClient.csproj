@@ -68,11 +68,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bootstrap\css\bootstrapp-responsive.min.css" />
-    <Content Include="bootstrap\css\bootstrapp.min.css" />
-    <Content Include="bootstrap\img\glyphicons-halflings-white.png" />
-    <Content Include="bootstrap\img\glyphicons-halflings.png" />
-    <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="Bought.aspx" />
     <Content Include="Buy.aspx" />
     <Content Include="Cart.aspx" />
