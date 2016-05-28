@@ -90,7 +90,7 @@ namespace WebClient
 
         protected void redirect(object sender, EventArgs e)
         {
-            Session["productDetails"] = ((LinkButton)(sender)).ID;
+            Session["productDetails"] = ((LinkButton)(sender)).CommandArgument;
             Response.Redirect("./ProductDetails.aspx");
         }
     }

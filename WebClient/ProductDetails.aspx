@@ -5,23 +5,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
         <div id="gallery" class="span3">
-            <a href="themes/images/products/large/f1.jpg" title="Fujifilm FinePix S2950 Digital Camera">
-                <img src="themes/images/products/large/3.jpg" style="width: 100%" alt="Fujifilm FinePix S2950 Digital Camera" />
-            </a>
+            <a id="bigPictureA" runat="server" title="Fujifilm FinePix S2950 Digital Camera">
+                <asp:Image runat="server" ID="bigPictureB" Style="width: 100%; height: 100%"/></a>
             <div id="differentview" class="moreOptopm carousel slide">
                 <div class="carousel-inner">
                     <div class="item active">
-                        <a href="themes/images/products/large/f1.jpg">
-                            <img style="width: 29%" src="themes/images/products/large/f1.jpg" alt="" /></a>
-                        <a href="themes/images/products/large/f2.jpg">
-                            <img style="width: 29%" src="themes/images/products/large/f2.jpg" alt="" /></a>
-                        <a href="themes/images/products/large/f3.jpg">
-                            <img style="width: 29%" src="themes/images/products/large/f3.jpg" alt="" /></a>
+                        <a id="pic1a" runat="server">
+                            <asp:Image runat="server" ID="pic1b" Style="width: 29%"/></a>
+                        <a id="pic2a" runat="server">
+                            <asp:Image runat="server" ID="pic2b" Style="width: 29%"/></a>
+                        <a id="pic3a" runat="server">
+                            <asp:Image runat="server" ID="pic3b" Style="width: 29%"/></a>
                     </div>
                 </div>
-            </div>
-            <div class="controls">
-                <button type="submit" class="btn btn-large btn-primary pull-right">Add to cart <i class=" icon-shopping-cart"></i></button>
             </div>
         </div>
         <div class="span6">
@@ -33,7 +29,7 @@
             <h4>Description:</h4>
             <p id="descriptin" runat="server"></p>
             <hr class="soft" />
-            <h4>Ask & Answer:</h4>
+            <h4>Comments:</h4>
             <p id="comments" runat="server"></p>
             <hr class="soft" />
         </div>

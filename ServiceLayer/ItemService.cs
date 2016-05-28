@@ -69,7 +69,7 @@ namespace ServiceLayer
 
         public Item getItem(int id, ref string message)
         {
-            throw new NotImplementedException();
+            return itemLocalToItem(new ItemControl().getItem(id, ref message));
         }
 
         public bool setItem(Person person, ref string message)
