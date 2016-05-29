@@ -130,4 +130,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="latestAdded">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="latestAddedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="latestAddedResult" nillable="true" type="q13:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

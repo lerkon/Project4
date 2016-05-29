@@ -41,6 +41,10 @@ namespace ServiceLayer
         [OperationContract]
         [FaultContract(typeof(ItemFault))]
         void bought(ref Person person, ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(ItemFault))]
+        Item[] latestAdded();
     }
 
     [DataContract]

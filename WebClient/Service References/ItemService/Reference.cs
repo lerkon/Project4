@@ -817,6 +817,13 @@ namespace WebClient.ItemService {
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/bought", ReplyAction="http://tempuri.org/IItemService/boughtResponse")]
         System.Threading.Tasks.Task<WebClient.ItemService.boughtResponse> boughtAsync(WebClient.ItemService.boughtRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/latestAdded", ReplyAction="http://tempuri.org/IItemService/latestAddedResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WebClient.ItemService.ItemFault), Action="http://tempuri.org/IItemService/latestAddedItemFaultFault", Name="ItemFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebClient.ItemService.Item[] latestAdded();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/latestAdded", ReplyAction="http://tempuri.org/IItemService/latestAddedResponse")]
+        System.Threading.Tasks.Task<WebClient.ItemService.Item[]> latestAddedAsync();
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1308,6 +1315,14 @@ namespace WebClient.ItemService {
         
         public System.Threading.Tasks.Task<WebClient.ItemService.boughtResponse> boughtAsync(WebClient.ItemService.boughtRequest request) {
             return base.Channel.boughtAsync(request);
+        }
+        
+        public WebClient.ItemService.Item[] latestAdded() {
+            return base.Channel.latestAdded();
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ItemService.Item[]> latestAddedAsync() {
+            return base.Channel.latestAddedAsync();
         }
     }
 }

@@ -158,5 +158,18 @@ namespace ServiceLayer
                 person.itemsBought = list;
             }
         }
+
+        public Item[] latestAdded()
+        {
+            ItemLocal[] itemsLocal = new ItemControl().latestAdded();
+            if (itemsLocal != null)
+            {
+                Item[] items = new Item[itemsLocal.Count()];
+                for (int i = 0; i < itemsLocal.Count(); i++)
+                    items[i] = itemLocalToItem(itemsLocal[i]);
+                return items;
+            }
+            return null;
+        }
     }
 }

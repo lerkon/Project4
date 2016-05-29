@@ -80,6 +80,15 @@
   <wsdl:message name="IItemService_bought_ItemFaultFault_FaultMessage">
     <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q8:ItemFault" />
   </wsdl:message>
+  <wsdl:message name="IItemService_latestAdded_InputMessage">
+    <wsdl:part name="parameters" element="tns:latestAdded" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_latestAdded_OutputMessage">
+    <wsdl:part name="parameters" element="tns:latestAddedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_latestAdded_ItemFaultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q9:ItemFault" />
+  </wsdl:message>
   <wsdl:portType name="IItemService">
     <wsdl:operation name="getItem">
       <wsdl:input wsaw:Action="http://tempuri.org/IItemService/getItem" message="tns:IItemService_getItem_InputMessage" />
@@ -120,6 +129,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IItemService/bought" message="tns:IItemService_bought_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IItemService/boughtResponse" message="tns:IItemService_bought_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IItemService/boughtItemFaultFault" name="ItemFaultFault" message="tns:IItemService_bought_ItemFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="latestAdded">
+      <wsdl:input wsaw:Action="http://tempuri.org/IItemService/latestAdded" message="tns:IItemService_latestAdded_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IItemService/latestAddedResponse" message="tns:IItemService_latestAdded_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IItemService/latestAddedItemFaultFault" name="ItemFaultFault" message="tns:IItemService_latestAdded_ItemFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IItemService" type="tns:IItemService">
@@ -210,6 +224,18 @@
     </wsdl:operation>
     <wsdl:operation name="bought">
       <soap:operation soapAction="http://tempuri.org/IItemService/bought" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ItemFaultFault">
+        <soap:fault use="literal" name="ItemFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="latestAdded">
+      <soap:operation soapAction="http://tempuri.org/IItemService/latestAdded" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

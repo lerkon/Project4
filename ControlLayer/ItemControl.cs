@@ -60,5 +60,10 @@ namespace ControlLayer
         {
             new ItemDB().bought(ref person);
         }
+
+        public ItemLocal[] latestAdded()
+        {
+            return new ItemDB().latestAdded();
+        }
     }
 }

@@ -269,5 +269,37 @@ namespace DBLayer
                 }
             }
         }
+
+        public ItemLocal[] latestAdded()
+        {
+            using (var entity = new dmaj0914_2Sem_5Entities1())
+            {
+                var items = entity.Items.OrderByDescending(p => p.id).Take(6);
+                if (items.FirstOrDefault() != null)
+                {
+                    ItemLocal[] itemList = new ItemLocal[items.Count()];
+                    for (int ii = 0; ii < items.Count(); ii++)
+                    {
+                        Item i = items.Skip(ii).FirstOrDefault();
+                        ItemLocal item = new ItemLocal();
+                        var pic = entity.Pictures.Where(a => a.itemId == i.id);
+                        if (pic.FirstOrDefault() != null)
+                        {
+                            item.img = new byte[1][];
+                            item.img[0] = pic.FirstOrDefault().img;
+                        }
+                        item.id = i.id;
+                        item.name = i.name;
+                        item.price = i.price;
+                        item.stock = i.stock;
+                        item.stockRemained = i.stockRemained;
+                        item.category = i.category;
+                        itemList[ii] = item;
+                    }
+                    return itemList;
+                }
+            }
+            return null;
+        }
     }
 }
