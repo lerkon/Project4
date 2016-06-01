@@ -120,9 +120,21 @@ namespace ServiceLayer
             return null;
         }
 
-        public List<Order> getOrders(Person person, ref string message)
+        public void getOrders(ref Item item, ref string message)
         {
-            throw new NotImplementedException();
+            ItemLocal i = itemLocalFromItem(item);
+            new ItemControl().getOrders(ref i, ref message);
+            if (i.orders != null)
+            {
+                List<Order> list = new List<Order>();
+                foreach (var ii in i.orders)
+                {
+                    Order o = OrderFromOrderLocal(ii);
+                    o.buyer = new PersonService().personLocalToPerson(ii.buyer);
+                    list.Add(o);
+                }
+                item.orders = list;
+            }
         }
 
         public bool setOrder(List<Item> orders, ref string message)

@@ -69,7 +69,7 @@
                                     <li>
                                         <asp:LinkButton ID="electronic1" Text="Cameras" OnClick="category" runat="server" />
                                     <li>
-                                        <asp:LinkButton ID="electronic2" Text="Computers, Tablets & laptop" OnClick="category" runat="server" />
+                                        <asp:LinkButton ID="electronic2" Text="Computers" OnClick="category" runat="server" />
                                     <li>
                                         <asp:LinkButton ID="electronic3" Text="Phones" OnClick="category" runat="server" />
                                     <li>
@@ -79,7 +79,7 @@
                             <li class="subMenu"><a>CLOTHES</a>
                                 <ul style="display: none">
                                     <li>
-                                        <asp:LinkButton ID="clothes1" Text="Women's Shoes" OnClick="category" runat="server" />
+                                        <asp:LinkButton ID="clothes1" Text="Shoes" OnClick="category" runat="server" />
                                     </li>
                                 </ul>
                             </li>
@@ -87,9 +87,9 @@
                                 <ul style="display: none">
                                 </ul>
                             </li>
-                            <li><a href="products.html">HEALTH & BEAUTY</a></li>
-                            <li><a href="products.html">SPORTS & LEISURE</a></li>
-                            <li><a href="products.html">BOOKS & ENTERTAINMENTS</a></li>
+                            <li><a href="#">HEALTH & BEAUTY</a></li>
+                            <li><a href="#">SPORTS & LEISURE</a></li>
+                            <li><a href="#">BOOKS & ENTERTAINMENTS</a></li>
                         </ul>
                         <br />
                     </div>

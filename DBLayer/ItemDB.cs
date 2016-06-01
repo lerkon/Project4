@@ -213,13 +213,9 @@ namespace DBLayer
                                 return true;
                             else
                             {
-                                bool ok = false;
-                                while (!ok)
-                                {
-                                    item.stockRemained += i.orders.FirstOrDefault().amount;
-                                    if (entity.SaveChanges() == 1)
-                                        ok = true;
-                                }
+                                item.stockRemained += i.orders.FirstOrDefault().amount;
+                                if (entity.SaveChanges() == 1)
+                                    return false;
                             }
                         }
                     }
@@ -300,6 +296,37 @@ namespace DBLayer
                 }
             }
             return null;
+        }
+
+        public void getOrders(ref ItemLocal item)
+        {
+            using (var entity = new dmaj0914_2Sem_5Entities1())
+            {
+                int idItem = item.id;
+                var orders = entity.Orderrs.Where(a => a.itemId == idItem).OrderBy(x => x.buyDay);
+                if (orders.FirstOrDefault() != null)
+                {
+                    item.orders = new List<OrderLocal>();
+                    foreach (var o in orders)
+                    {
+                        var person = entity.People.Where(a => a.id == o.personBuyerId).FirstOrDefault();
+                        OrderLocal ol = new OrderLocal();
+                        ol.amount = o.amount;
+                        ol.buyDay = o.buyDay;
+                        ol.id = o.id;
+                        ol.totalPrice = o.totalPrice;
+                        ol.buyer = new PersonLocal();
+                        ol.buyer.address = person.address;
+                        ol.buyer.city = person.city;
+                        ol.buyer.email = person.email;
+                        ol.buyer.name = person.name;
+                        ol.buyer.surname = person.surname;
+                        ol.buyer.phone = person.phone;
+                        ol.buyer.zipCode = person.zipCode;
+                        item.orders.Add(ol);
+                    }
+                }
+            }
         }
     }
 }

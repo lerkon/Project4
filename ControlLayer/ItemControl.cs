@@ -65,5 +65,10 @@ namespace ControlLayer
         {
             return new ItemDB().latestAdded();
         }
+
+        public void getOrders(ref ItemLocal item, ref string message)
+        {
+            new ItemDB().getOrders(ref item);
+        }
     }
 }

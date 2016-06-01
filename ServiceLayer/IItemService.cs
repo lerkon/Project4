@@ -32,7 +32,7 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(ItemFault))]
-        List<Order> getOrders(Person person, ref string message);
+        void getOrders(ref Item item, ref string message);
 
         [OperationContract]
         [FaultContract(typeof(ItemFault))]

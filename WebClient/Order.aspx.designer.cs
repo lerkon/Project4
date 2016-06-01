@@ -10,7 +10,7 @@
 namespace WebClient {
     
     
-    public partial class MyProfile {
+    public partial class Order {
         
         /// <summary>
         /// addCell control.

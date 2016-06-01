@@ -1032,7 +1032,7 @@ namespace WebClient.ItemService {
     public partial class getOrdersRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public WebClient.ItemService.Person person;
+        public WebClient.ItemService.Item item;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
@@ -1040,8 +1040,8 @@ namespace WebClient.ItemService {
         public getOrdersRequest() {
         }
         
-        public getOrdersRequest(WebClient.ItemService.Person person, string message) {
-            this.person = person;
+        public getOrdersRequest(WebClient.ItemService.Item item, string message) {
+            this.item = item;
             this.message = message;
         }
     }
@@ -1052,7 +1052,7 @@ namespace WebClient.ItemService {
     public partial class getOrdersResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public WebClient.ItemService.Order[] getOrdersResult;
+        public WebClient.ItemService.Item item;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
@@ -1060,8 +1060,8 @@ namespace WebClient.ItemService {
         public getOrdersResponse() {
         }
         
-        public getOrdersResponse(WebClient.ItemService.Order[] getOrdersResult, string message) {
-            this.getOrdersResult = getOrdersResult;
+        public getOrdersResponse(WebClient.ItemService.Item item, string message) {
+            this.item = item;
             this.message = message;
         }
     }
@@ -1268,13 +1268,13 @@ namespace WebClient.ItemService {
             return base.Channel.getOrders(request);
         }
         
-        public WebClient.ItemService.Order[] getOrders(WebClient.ItemService.Person person, ref string message) {
+        public void getOrders(ref WebClient.ItemService.Item item, ref string message) {
             WebClient.ItemService.getOrdersRequest inValue = new WebClient.ItemService.getOrdersRequest();
-            inValue.person = person;
+            inValue.item = item;
             inValue.message = message;
             WebClient.ItemService.getOrdersResponse retVal = ((WebClient.ItemService.IItemService)(this)).getOrders(inValue);
+            item = retVal.item;
             message = retVal.message;
-            return retVal.getOrdersResult;
         }
         
         public System.Threading.Tasks.Task<WebClient.ItemService.getOrdersResponse> getOrdersAsync(WebClient.ItemService.getOrdersRequest request) {

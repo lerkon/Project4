@@ -54,10 +54,12 @@ namespace WebClient
             HtmlGenericControl p1 = new HtmlGenericControl("p");
             p1.InnerHtml = description;
             div3.Controls.Add(p1);
-            HtmlGenericControl div4 = new HtmlGenericControl("div");
-            div4.Attributes.Add("class", "btn btn-small pull-right");
-            div4.InnerHtml = "View Details";
-            div3.Controls.Add(div4);
+            LinkButton lb2 = new LinkButton();
+            lb2.Click += new EventHandler(redirect);
+            lb2.CssClass = "btn btn-small pull-right";
+            lb2.Text = "View Details";
+            lb2.CommandArgument = id.ToString();
+            div3.Controls.Add(lb2);
             HtmlGenericControl br = new HtmlGenericControl("br");
             br.Attributes.Add("class", "clr");
             div3.Controls.Add(br);
@@ -92,6 +94,12 @@ namespace WebClient
             else//id,price,amount
                 ((List<int[]>)Session["productId"]).Add(new int[3] { Int32.Parse(arg[0]), Int32.Parse(arg[1]), 1 });
             ((MasterPage)this.Master).changeCart();
+        }
+
+        protected void redirect(object sender, EventArgs e)
+        {
+            Session["productDetails"] = ((LinkButton)(sender)).CommandArgument;
+            Response.Redirect("./ProductDetails.aspx");
         }
     }
 }

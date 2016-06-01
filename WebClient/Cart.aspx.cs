@@ -133,13 +133,13 @@ namespace WebClient
             List<Item> items = new List<Item>();
             for (int i = 0; i < ((List<int[]>)Session["productId"]).Count; i++)
             {
-                Order order = new Order();
+                ItemService.Order order = new ItemService.Order();
                 order.amount = ((List<int[]>)Session["productId"]).ElementAt(i)[2];
                 order.buyDay = DateTime.Today;
                 order.totalPrice = ((List<int[]>)Session["productId"]).Sum(x => x[1]);
                 order.buyer = new Person();
                 order.buyer.id = ((PersonService.Person)Session["person"]).id;
-                Order[] orders = new Order[1];
+                ItemService.Order[] orders = new ItemService.Order[1];
                 orders[0] = order;
                 Item item = new Item();
                 item.id = ((List<int[]>)Session["productId"]).ElementAt(i)[0];

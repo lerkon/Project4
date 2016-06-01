@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="well well-small">
+    <div class="well well-small" style="display:none">
         <h4>Featured Products <small class="pull-right">200+ featured products</small></h4>
         <div class="row-fluid">
             <div id="featured" class="carousel slide">
@@ -196,84 +196,107 @@
             </div>
         </div>
     </div>
-    <h4>Latest Products </h4>
+    <h4>Latest Products</h4>
     <ul class="thumbnails">
         <li class="span3">
             <div class="thumbnail">
-                <a href="product_details.html">
-                    <img src="themes/images/products/6.jpg" alt="" /></a>
+                <asp:LinkButton ID="linkLatest1" runat="server" OnClick="redirect">
+                    <asp:Image runat="server" ID="imgLatest1" Style="width: 50%" />
+                </asp:LinkButton>
                 <div class="caption">
-                    <h5>Product name</h5>
-                    <p>
-                        Lorem Ipsum is simply dummy text. 
-                    </p>
-
-                    <h4 style="text-align: center"><a class="btn" href="product_details.html"><i class="icon-zoom-in"></i></a><a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a><a class="btn btn-primary" href="#">$222.00</a></h4>
+                    <h5 id="nameLatest1" runat="server">Product name</h5>
+                    <p id="stockLatest1" runat="server"></p>
+                    <h4 style="text-align: center">
+                        <asp:LinkButton ID="cartLatest1" runat="server" OnClick="addProductCart" CssClass="btn">
+                            Add to<span aria-hidden="true" class="icon-shopping-cart"></span>
+                        </asp:LinkButton>
+                        <a class="btn btn-primary" href="#" id="priceLatest1" runat="server"></a>
+                    </h4>
                 </div>
             </div>
         </li>
         <li class="span3">
             <div class="thumbnail">
-                <a href="product_details.html">
-                    <img src="themes/images/products/7.jpg" alt="" /></a>
+                <asp:LinkButton ID="linkLatest2" runat="server" OnClick="redirect">
+                    <asp:Image runat="server" ID="imgLatest2" Style="width: 50%" />
+                </asp:LinkButton>
                 <div class="caption">
-                    <h5>Product name</h5>
-                    <p>
-                        Lorem Ipsum is simply dummy text. 
-                    </p>
-                    <h4 style="text-align: center"><a class="btn" href="product_details.html"><i class="icon-zoom-in"></i></a><a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a><a class="btn btn-primary" href="#">$222.00</a></h4>
+                    <h5 id="nameLatest2" runat="server">Product name</h5>
+                    <p id="stockLatest2" runat="server"></p>
+                    <h4 style="text-align: center">
+                        <asp:LinkButton ID="cartLatest2" runat="server" OnClick="addProductCart" CssClass="btn">
+                            Add to<span aria-hidden="true" class="icon-shopping-cart"></span>
+                        </asp:LinkButton>
+                        <a class="btn btn-primary" href="#" id="priceLatest2" runat="server"></a>
+                    </h4>
                 </div>
             </div>
         </li>
         <li class="span3">
             <div class="thumbnail">
-                <a href="product_details.html">
-                    <img src="themes/images/products/8.jpg" alt="" /></a>
+                <asp:LinkButton ID="linkLatest3" runat="server" OnClick="redirect">
+                    <asp:Image runat="server" ID="imgLatest3" Style="width: 50%" />
+                </asp:LinkButton>
                 <div class="caption">
-                    <h5>Product name</h5>
-                    <p>
-                        Lorem Ipsum is simply dummy text. 
-                    </p>
-                    <h4 style="text-align: center"><a class="btn" href="product_details.html"><i class="icon-zoom-in"></i></a><a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a><a class="btn btn-primary" href="#">$222.00</a></h4>
+                    <h5 id="nameLatest3" runat="server">Product name</h5>
+                    <p id="stockLatest3" runat="server"></p>
+                    <h4 style="text-align: center">
+                        <asp:LinkButton ID="cartLatest3" runat="server" OnClick="addProductCart" CssClass="btn">
+                            Add to<span aria-hidden="true" class="icon-shopping-cart"></span>
+                        </asp:LinkButton>
+                        <a class="btn btn-primary" href="#" id="priceLatest3" runat="server"></a>
+                    </h4>
                 </div>
             </div>
         </li>
         <li class="span3">
             <div class="thumbnail">
-                <a href="product_details.html">
-                    <img src="themes/images/products/9.jpg" alt="" /></a>
+                <asp:LinkButton ID="linkLatest4" runat="server" OnClick="redirect">
+                    <asp:Image runat="server" ID="imgLatest4" Style="width: 50%" />
+                </asp:LinkButton>
                 <div class="caption">
-                    <h5>Product name</h5>
-                    <p>
-                        Lorem Ipsum is simply dummy text. 
-                    </p>
-                    <h4 style="text-align: center"><a class="btn" href="product_details.html"><i class="icon-zoom-in"></i></a><a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a><a class="btn btn-primary" href="#">$222.00</a></h4>
+                    <h5 id="nameLatest4" runat="server">Product name</h5>
+                    <p id="stockLatest4" runat="server"></p>
+                    <h4 style="text-align: center">
+                        <asp:LinkButton ID="cartLatest4" runat="server" OnClick="addProductCart" CssClass="btn">
+                            Add to<span aria-hidden="true" class="icon-shopping-cart"></span>
+                        </asp:LinkButton>
+                        <a class="btn btn-primary" href="#" id="priceLatest4" runat="server"></a>
+                    </h4>
                 </div>
             </div>
         </li>
         <li class="span3">
             <div class="thumbnail">
-                <a href="product_details.html">
-                    <img src="themes/images/products/10.jpg" alt="" /></a>
+                <asp:LinkButton ID="linkLatest5" runat="server" OnClick="redirect">
+                    <asp:Image runat="server" ID="imgLatest5" Style="width: 50%" />
+                </asp:LinkButton>
                 <div class="caption">
-                    <h5>Product name</h5>
-                    <p>
-                        Lorem Ipsum is simply dummy text. 
-                    </p>
-                    <h4 style="text-align: center"><a class="btn" href="product_details.html"><i class="icon-zoom-in"></i></a><a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a><a class="btn btn-primary" href="#">$222.00</a></h4>
+                    <h5 id="nameLatest5" runat="server">Product name</h5>
+                    <p id="stockLatest5" runat="server"></p>
+                    <h4 style="text-align: center">
+                        <asp:LinkButton ID="cartLatest5" runat="server" OnClick="addProductCart" CssClass="btn">
+                            Add to<span aria-hidden="true" class="icon-shopping-cart"></span>
+                        </asp:LinkButton>
+                        <a class="btn btn-primary" href="#" id="priceLatest5" runat="server"></a>
+                    </h4>
                 </div>
             </div>
         </li>
         <li class="span3">
             <div class="thumbnail">
-                <a href="product_details.html">
-                    <img src="themes/images/products/11.jpg" alt="" /></a>
+                <asp:LinkButton ID="linkLatest6" runat="server" OnClick="redirect">
+                    <asp:Image runat="server" ID="imgLatest6" Style="width: 50%" />
+                </asp:LinkButton>
                 <div class="caption">
-                    <h5>Product name</h5>
-                    <p>
-                        Lorem Ipsum is simply dummy text. 
-                    </p>
-                    <h4 style="text-align: center"><a class="btn" href="product_details.html"><i class="icon-zoom-in"></i></a><a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a><a class="btn btn-primary" href="#">$222.00</a></h4>
+                    <h5 id="nameLatest6" runat="server">Product name</h5>
+                    <p id="stockLatest6" runat="server"></p>
+                    <h4 style="text-align: center">
+                        <asp:LinkButton ID="cartLatest6" runat="server" OnClick="addProductCart" CssClass="btn">
+                            Add to<span aria-hidden="true" class="icon-shopping-cart"></span>
+                        </asp:LinkButton>
+                        <a class="btn btn-primary" href="#" id="priceLatest6" runat="server"></a>
+                    </h4>
                 </div>
             </div>
         </li>

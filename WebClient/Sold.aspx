@@ -55,7 +55,7 @@
                 <th>Category</th>
             </tr>
         </thead>
-        <tbody id="addCell">
+        <tbody id="addCell" runat="server">
             <tr style="display: none;">
                 <td>
                     <img width="60" src="themes/images/products/4.jpg" alt="" /></td>

@@ -85,7 +85,7 @@
   <xs:element name="getOrders">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="person" nillable="true" type="q8:Person" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="item" nillable="true" type="q8:Item" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -93,7 +93,7 @@
   <xs:element name="getOrdersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="getOrdersResult" nillable="true" type="q9:ArrayOfOrder" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="item" nillable="true" type="q9:Item" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
