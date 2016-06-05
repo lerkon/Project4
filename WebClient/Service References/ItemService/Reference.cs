@@ -29,6 +29,9 @@ namespace WebClient.ItemService {
         private string categoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebClient.ItemService.Comment[] commentsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string descriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -93,6 +96,19 @@ namespace WebClient.ItemService {
                 if ((object.ReferenceEquals(this.categoryField, value) != true)) {
                     this.categoryField = value;
                     this.RaisePropertyChanged("category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebClient.ItemService.Comment[] comments {
+            get {
+                return this.commentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.commentsField, value) != true)) {
+                    this.commentsField = value;
+                    this.RaisePropertyChanged("comments");
                 }
             }
         }
@@ -236,6 +252,115 @@ namespace WebClient.ItemService {
                 if ((this.stockRemainedField.Equals(value) != true)) {
                     this.stockRemainedField = value;
                     this.RaisePropertyChanged("stockRemained");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Comment", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+    [System.SerializableAttribute()]
+    public partial class Comment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FaultMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string commentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime commentDayField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebClient.ItemService.Person personField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FaultMessage {
+            get {
+                return this.FaultMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FaultMessageField, value) != true)) {
+                    this.FaultMessageField = value;
+                    this.RaisePropertyChanged("FaultMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string comment {
+            get {
+                return this.commentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.commentField, value) != true)) {
+                    this.commentField = value;
+                    this.RaisePropertyChanged("comment");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime commentDay {
+            get {
+                return this.commentDayField;
+            }
+            set {
+                if ((this.commentDayField.Equals(value) != true)) {
+                    this.commentDayField = value;
+                    this.RaisePropertyChanged("commentDay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebClient.ItemService.Person person {
+            get {
+                return this.personField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.personField, value) != true)) {
+                    this.personField = value;
+                    this.RaisePropertyChanged("person");
                 }
             }
         }
@@ -820,10 +945,27 @@ namespace WebClient.ItemService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/latestAdded", ReplyAction="http://tempuri.org/IItemService/latestAddedResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WebClient.ItemService.ItemFault), Action="http://tempuri.org/IItemService/latestAddedItemFaultFault", Name="ItemFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WebClient.ItemService.Item[] latestAdded();
+        WebClient.ItemService.latestAddedResponse latestAdded(WebClient.ItemService.latestAddedRequest request);
         
+        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/latestAdded", ReplyAction="http://tempuri.org/IItemService/latestAddedResponse")]
-        System.Threading.Tasks.Task<WebClient.ItemService.Item[]> latestAddedAsync();
+        System.Threading.Tasks.Task<WebClient.ItemService.latestAddedResponse> latestAddedAsync(WebClient.ItemService.latestAddedRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/getComments", ReplyAction="http://tempuri.org/IItemService/getCommentsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WebClient.ItemService.ItemFault), Action="http://tempuri.org/IItemService/getCommentsItemFaultFault", Name="ItemFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebClient.ItemService.getCommentsResponse getComments(WebClient.ItemService.getCommentsRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/getComments", ReplyAction="http://tempuri.org/IItemService/getCommentsResponse")]
+        System.Threading.Tasks.Task<WebClient.ItemService.getCommentsResponse> getCommentsAsync(WebClient.ItemService.getCommentsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/setComment", ReplyAction="http://tempuri.org/IItemService/setCommentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WebClient.ItemService.ItemFault), Action="http://tempuri.org/IItemService/setCommentItemFaultFault", Name="ItemFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebClient.ItemService.setCommentResponse setComment(WebClient.ItemService.setCommentRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IItemService/setComment", ReplyAction="http://tempuri.org/IItemService/setCommentResponse")]
+        System.Threading.Tasks.Task<WebClient.ItemService.setCommentResponse> setCommentAsync(WebClient.ItemService.setCommentRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1146,6 +1288,126 @@ namespace WebClient.ItemService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="latestAdded", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class latestAddedRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string message;
+        
+        public latestAddedRequest() {
+        }
+        
+        public latestAddedRequest(string message) {
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="latestAddedResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class latestAddedResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ItemService.Item[] latestAddedResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public latestAddedResponse() {
+        }
+        
+        public latestAddedResponse(WebClient.ItemService.Item[] latestAddedResult, string message) {
+            this.latestAddedResult = latestAddedResult;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getComments", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getCommentsRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ItemService.Item item;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public getCommentsRequest() {
+        }
+        
+        public getCommentsRequest(WebClient.ItemService.Item item, string message) {
+            this.item = item;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getCommentsResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getCommentsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ItemService.Item item;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public getCommentsResponse() {
+        }
+        
+        public getCommentsResponse(WebClient.ItemService.Item item, string message) {
+            this.item = item;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="setComment", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class setCommentRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ItemService.Item item;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public setCommentRequest() {
+        }
+        
+        public setCommentRequest(WebClient.ItemService.Item item, string message) {
+            this.item = item;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="setCommentResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class setCommentResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool setCommentResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public WebClient.ItemService.Item item;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string message;
+        
+        public setCommentResponse() {
+        }
+        
+        public setCommentResponse(bool setCommentResult, WebClient.ItemService.Item item, string message) {
+            this.setCommentResult = setCommentResult;
+            this.item = item;
+            this.message = message;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IItemServiceChannel : WebClient.ItemService.IItemService, System.ServiceModel.IClientChannel {
     }
@@ -1317,12 +1579,58 @@ namespace WebClient.ItemService {
             return base.Channel.boughtAsync(request);
         }
         
-        public WebClient.ItemService.Item[] latestAdded() {
-            return base.Channel.latestAdded();
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ItemService.latestAddedResponse WebClient.ItemService.IItemService.latestAdded(WebClient.ItemService.latestAddedRequest request) {
+            return base.Channel.latestAdded(request);
         }
         
-        public System.Threading.Tasks.Task<WebClient.ItemService.Item[]> latestAddedAsync() {
-            return base.Channel.latestAddedAsync();
+        public WebClient.ItemService.Item[] latestAdded(ref string message) {
+            WebClient.ItemService.latestAddedRequest inValue = new WebClient.ItemService.latestAddedRequest();
+            inValue.message = message;
+            WebClient.ItemService.latestAddedResponse retVal = ((WebClient.ItemService.IItemService)(this)).latestAdded(inValue);
+            message = retVal.message;
+            return retVal.latestAddedResult;
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ItemService.latestAddedResponse> latestAddedAsync(WebClient.ItemService.latestAddedRequest request) {
+            return base.Channel.latestAddedAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ItemService.getCommentsResponse WebClient.ItemService.IItemService.getComments(WebClient.ItemService.getCommentsRequest request) {
+            return base.Channel.getComments(request);
+        }
+        
+        public void getComments(ref WebClient.ItemService.Item item, ref string message) {
+            WebClient.ItemService.getCommentsRequest inValue = new WebClient.ItemService.getCommentsRequest();
+            inValue.item = item;
+            inValue.message = message;
+            WebClient.ItemService.getCommentsResponse retVal = ((WebClient.ItemService.IItemService)(this)).getComments(inValue);
+            item = retVal.item;
+            message = retVal.message;
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ItemService.getCommentsResponse> getCommentsAsync(WebClient.ItemService.getCommentsRequest request) {
+            return base.Channel.getCommentsAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ItemService.setCommentResponse WebClient.ItemService.IItemService.setComment(WebClient.ItemService.setCommentRequest request) {
+            return base.Channel.setComment(request);
+        }
+        
+        public bool setComment(ref WebClient.ItemService.Item item, ref string message) {
+            WebClient.ItemService.setCommentRequest inValue = new WebClient.ItemService.setCommentRequest();
+            inValue.item = item;
+            inValue.message = message;
+            WebClient.ItemService.setCommentResponse retVal = ((WebClient.ItemService.IItemService)(this)).setComment(inValue);
+            item = retVal.item;
+            message = retVal.message;
+            return retVal.setCommentResult;
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ItemService.setCommentResponse> setCommentAsync(WebClient.ItemService.setCommentRequest request) {
+            return base.Channel.setCommentAsync(request);
         }
     }
 }

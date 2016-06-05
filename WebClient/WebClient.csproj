@@ -93,6 +93,15 @@
     <Content Include="Service References\ItemService\WebClient.ItemService.Person.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ItemService\WebClient.ItemService.getCommentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ItemService\WebClient.ItemService.latestAddedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ItemService\WebClient.ItemService.setCommentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\PersonService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>

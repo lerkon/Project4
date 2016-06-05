@@ -61,7 +61,7 @@ namespace ControlLayer
             new ItemDB().bought(ref person);
         }
 
-        public ItemLocal[] latestAdded()
+        public ItemLocal[] latestAdded(ref string message)
         {
             return new ItemDB().latestAdded();
         }
@@ -69,6 +69,16 @@ namespace ControlLayer
         public void getOrders(ref ItemLocal item, ref string message)
         {
             new ItemDB().getOrders(ref item);
+        }
+
+        public bool setComment(ref ItemLocal item, ref string message)
+        {
+            return new ItemDB().setComment(ref item);
+        }
+
+        public void getComments(ref ItemLocal item, ref string message)
+        {
+            new ItemDB().getComments(ref item);
         }
     }
 }

@@ -27,7 +27,8 @@ namespace WebClient
 
         private void Add()
         {
-            Item[] items = new ItemServiceClient().latestAdded();
+            string message = null;
+            Item[] items = new ItemServiceClient().latestAdded(ref message);
             imgLatest1.ImageUrl = translate(items[0].img[0]);
             linkLatest1.CommandArgument = items[0].id.ToString();
             nameLatest1.InnerHtml = items[0].name;

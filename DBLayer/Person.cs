@@ -19,6 +19,7 @@ namespace DBLayer
         {
             this.Items = new HashSet<Item>();
             this.Orderrs = new HashSet<Orderr>();
+            this.Comments = new HashSet<Comment>();
         }
     
         public int id { get; set; }
@@ -38,5 +39,7 @@ namespace DBLayer
         public virtual ICollection<Item> Items { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orderr> Orderrs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

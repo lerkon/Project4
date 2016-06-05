@@ -19,6 +19,9 @@
                     </div>
                 </div>
             </div>
+            <hr class="soft" />
+            <asp:TextBox ID="comment" TextMode="multiline" Rows="5" runat="server" CssClass="form-control" Style="resize: none;" Width="94%" />
+            <asp:Button runat="server" OnClick="addComment" Text="Add comment" CssClass="btn btn-success" ID="addButton"/>
         </div>
         <div class="span6">
             <h2 id="name" runat="server"></h2>
@@ -31,7 +34,6 @@
             <hr class="soft" />
             <h4>Comments:</h4>
             <p id="comments" runat="server"></p>
-            <hr class="soft" />
         </div>
     </div>
 </asp:Content>

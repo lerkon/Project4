@@ -12,9 +12,12 @@
         <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Picture" Width="1.5" PointX="7" PointY="4.375" />
         <AssociationConnector Association="dmaj0914_2Sem_5Model.b" />
         <AssociationConnector Association="dmaj0914_2Sem_5Model.c" />
-        <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Orderr" Width="1.5" PointX="3.875" PointY="1.125" />
+        <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Orderr" Width="1.5" PointX="2.875" PointY="1.375" />
         <AssociationConnector Association="dmaj0914_2Sem_5Model.d" />
         <AssociationConnector Association="dmaj0914_2Sem_5Model.e" />
+        <EntityTypeShape EntityType="dmaj0914_2Sem_5Model.Comment" Width="1.5" PointX="4.75" PointY="1.375" />
+        <AssociationConnector Association="dmaj0914_2Sem_5Model.g" />
+        <AssociationConnector Association="dmaj0914_2Sem_5Model.h" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

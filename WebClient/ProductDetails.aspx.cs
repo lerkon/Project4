@@ -13,8 +13,14 @@ namespace WebClient
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((PersonService.Person)Session["person"] == null)
+            {
+                comment.Visible = false;
+                addButton.Visible = false;
+            }
             string message = null;
-            Item i = new ItemServiceClient().getItem(Int32.Parse((string)Session["productDetails"]), ref message);
+            int idProduct = Int32.Parse((string)Session["productDetails"]);
+            Item i = new ItemServiceClient().getItem(idProduct, ref message);
             string img1 = "~/Icons/Picture.png";
             string img2 = "~/Icons/Picture.png";
             string img3 = "~/Icons/Picture.png";
@@ -35,6 +41,7 @@ namespace WebClient
             catch (Exception) { }
             fillOutFields(i.name, i.description, i.startAuction.ToShortDateString() + " - "+ i.endAuction.ToShortDateString(),
                 i.stockRemained+"/"+i.stock, i.price.ToString(), i.category, img1, img2, img3);
+            showComments(idProduct);
         }
 
         private void fillOutFields(string namee, string description, string dateAuction,
@@ -62,6 +69,38 @@ namespace WebClient
             HtmlGenericControl p4 = new HtmlGenericControl("p");
             p4.InnerHtml = "<b>Category: </b>" + category;
             content.Controls.Add(p4);
+        }
+
+        private void showComments(int productId)
+        {
+            string message = null;
+            Item i = new Item() { id = productId };
+            new ItemServiceClient().getComments(ref i, ref message);
+            if (i.comments != null)
+            {
+                foreach (var c in i.comments)
+                {
+                    HtmlGenericControl p1 = new HtmlGenericControl("p");
+                    p1.InnerHtml = "<b>" + c.commentDay + "  " + c.person.name + " " + c.person.surname + "</b>";
+                    comments.Controls.Add(p1);
+                    HtmlGenericControl p2 = new HtmlGenericControl("p");
+                    p2.InnerHtml = c.comment;
+                    comments.Controls.Add(p2);
+                    comments.Controls.Add(new LiteralControl("<p>&nbsp;</p>"));
+                }
+            }
+        }
+
+        protected void addComment(object sender, EventArgs e)
+        {
+            string message = null;
+            Item i = new Item() { id = Int32.Parse((string)Session["productDetails"]) };
+            i.comments = new Comment[1] { new Comment() };
+            i.comments[0].comment = comment.Text;
+            i.comments[0].commentDay = DateTime.Now;
+            i.comments[0].person = new Person() { id = ((PersonService.Person)Session["person"]).id };
+            new ItemServiceClient().setComment(ref i, ref message);
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

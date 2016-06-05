@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="dmaj0914_2Sem_5Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="itemId" Type="int" Nullable="false" />
+          <Property Name="personId" Type="int" Nullable="false" />
+          <Property Name="comment" Type="varchar" MaxLength="5000" />
+          <Property Name="commentDay" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="personId" />
@@ -129,6 +139,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="g">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="itemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="h">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="personId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -161,6 +195,7 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="dmaj0914_2Sem_5ModelStoreContainer">
+          <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orderr" EntityType="Self.Orderr" Schema="dbo" store:Type="Tables" />
@@ -185,6 +220,14 @@
           <AssociationSet Name="e" Association="Self.e">
             <End Role="Item" EntitySet="Item" />
             <End Role="Orderr" EntitySet="Orderr" />
+          </AssociationSet>
+          <AssociationSet Name="g" Association="Self.g">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="h" Association="Self.h">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Comment" EntitySet="Comment" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -219,6 +262,7 @@
           <NavigationProperty Name="Company" Relationship="Self.a" FromRole="Person" ToRole="Company" />
           <NavigationProperty Name="Items" Relationship="dmaj0914_2Sem_5Model.b" FromRole="Person" ToRole="Item" />
           <NavigationProperty Name="Orderrs" Relationship="dmaj0914_2Sem_5Model.d" FromRole="Person" ToRole="Orderr" />
+          <NavigationProperty Name="Comments" Relationship="dmaj0914_2Sem_5Model.h" FromRole="Person" ToRole="Comment" />
         </EntityType>
         <Association Name="a">
           <End Role="Person" Type="Self.Person" Multiplicity="1">
@@ -290,6 +334,15 @@
             <End Role="Item" EntitySet="Items" />
             <End Role="Orderr" EntitySet="Orderrs" />
           </AssociationSet>
+          <EntitySet Name="Comments" EntityType="dmaj0914_2Sem_5Model.Comment" />
+          <AssociationSet Name="g" Association="dmaj0914_2Sem_5Model.g">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="h" Association="dmaj0914_2Sem_5Model.h">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Item">
           <Key>
@@ -309,6 +362,7 @@
           <Property Name="rowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
           <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Orderrs" Relationship="dmaj0914_2Sem_5Model.e" FromRole="Item" ToRole="Orderr" />
+          <NavigationProperty Name="Comments" Relationship="dmaj0914_2Sem_5Model.g" FromRole="Item" ToRole="Comment" />
         </EntityType>
         <EntityType Name="Picture">
           <Key>
@@ -381,6 +435,42 @@
             </Principal>
             <Dependent Role="Orderr">
               <PropertyRef Name="itemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itemId" Type="Int32" Nullable="false" />
+          <Property Name="personId" Type="Int32" Nullable="false" />
+          <Property Name="comment1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="commentDay" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Item" Relationship="dmaj0914_2Sem_5Model.g" FromRole="Comment" ToRole="Item" />
+          <NavigationProperty Name="Person" Relationship="dmaj0914_2Sem_5Model.h" FromRole="Comment" ToRole="Person" />
+        </EntityType>
+        <Association Name="g">
+          <End Type="dmaj0914_2Sem_5Model.Item" Role="Item" Multiplicity="1" />
+          <End Type="dmaj0914_2Sem_5Model.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="itemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="h">
+          <End Type="dmaj0914_2Sem_5Model.Person" Role="Person" Multiplicity="1" />
+          <End Type="dmaj0914_2Sem_5Model.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="personId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -457,6 +547,17 @@
                 <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
                 <ScalarProperty Name="personBuyerId" ColumnName="personBuyerId" />
+                <ScalarProperty Name="itemId" ColumnName="itemId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="dmaj0914_2Sem_5Model.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="commentDay" ColumnName="commentDay" />
+                <ScalarProperty Name="comment1" ColumnName="comment" />
+                <ScalarProperty Name="personId" ColumnName="personId" />
                 <ScalarProperty Name="itemId" ColumnName="itemId" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>

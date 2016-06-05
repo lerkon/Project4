@@ -44,7 +44,15 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(ItemFault))]
-        Item[] latestAdded();
+        Item[] latestAdded(ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(ItemFault))]
+        void getComments(ref Item item, ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(ItemFault))]
+        bool setComment(ref Item item, ref string message);
     }
 
     [DataContract]
@@ -71,6 +79,8 @@ namespace ServiceLayer
         [DataMember]
         public List<Order> orders { get; set; }
         [DataMember]
+        public List<Comment> comments { get; set; }
+        [DataMember]
         public string description { get; set; }
         [DataMember]
         public byte[][] img { get; set; }
@@ -93,6 +103,21 @@ namespace ServiceLayer
         public Person buyer { get; set; }
         [DataMember]
         public DateTime buyDay { get; set; }
+    }
+
+    [DataContract]
+    public class Comment
+    {
+        [DataMember]
+        public string FaultMessage { get; set; }
+        [DataMember]
+        public int id { get; set; }
+        [DataMember]
+        public Person person { get; set; }
+        [DataMember]
+        public string comment { get; set; }
+        [DataMember]
+        public DateTime commentDay { get; set; }
     }
 
     [DataContract]

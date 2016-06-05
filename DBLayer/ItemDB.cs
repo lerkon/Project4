@@ -218,6 +218,8 @@ namespace DBLayer
                                     return false;
                             }
                         }
+                        else
+                            entity.Items = null;
                     }
                 }
             }
@@ -325,6 +327,50 @@ namespace DBLayer
                         ol.buyer.zipCode = person.zipCode;
                         item.orders.Add(ol);
                     }
+                }
+            }
+        }
+
+        public bool setComment(ref ItemLocal item)
+        {
+            using (var entity = new dmaj0914_2Sem_5Entities1())
+            {
+                int idItem = item.id;
+                Comment c = new Comment();
+                c.itemId = item.id;
+                c.comment1 = item.comments.FirstOrDefault().comment;
+                c.personId = item.comments.FirstOrDefault().person.id;
+                c.commentDay = item.comments.FirstOrDefault().commentDay;
+                entity.Comments.Add(c);
+                if (entity.SaveChanges() == 1)
+                    return true;
+            }
+            return false;
+        }
+
+        public void getComments(ref ItemLocal item)
+        {
+            using (var entity = new dmaj0914_2Sem_5Entities1())
+            {
+                int idItem = item.id;
+                var comments = entity.Comments.Where(a => a.itemId == idItem);
+                if (comments.FirstOrDefault() != null)
+                {
+                    List<CommentLocal> commentsList = new List<CommentLocal>();
+                    foreach (var comment in comments)
+                    {
+                        CommentLocal c = new CommentLocal();
+                        c.comment = comment.comment1;
+                        c.commentDay = comment.commentDay;
+                        c.id = comment.id;
+                        var person = entity.People.Where(a => a.id == comment.personId).FirstOrDefault();
+                        c.person = new PersonLocal();
+                        c.person.name = person.name;
+                        c.person.surname = person.surname;
+                        c.person.id = person.id;
+                        commentsList.Add(c);
+                    }
+                    item.comments = commentsList;
                 }
             }
         }

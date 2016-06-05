@@ -40,10 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnswerLocal.cs" />
     <Compile Include="CompanyLocal.cs" />
     <Compile Include="ItemLocal.cs" />
-    <Compile Include="MessageLocal.cs" />
+    <Compile Include="CommentLocal.cs" />
     <Compile Include="OrderLocal.cs" />
     <Compile Include="PersonLocal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

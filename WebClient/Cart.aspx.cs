@@ -149,7 +149,11 @@ namespace WebClient
             }
             bool ok = new ItemServiceClient().setOrder(items.ToArray(), ref message);
             if(ok)
+            {
+                Session["rowversions"] = null;
+                Session["productId"] = null;
                 Response.Redirect(Request.RawUrl);
+            }
         }
     }
 }

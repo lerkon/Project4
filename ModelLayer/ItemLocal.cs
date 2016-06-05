@@ -17,6 +17,7 @@ namespace ModelLayer
         public DateTime startAuction { get; set; }
         public DateTime endAuction { get; set; }
         public List<OrderLocal> orders { get; set; }
+        public List<CommentLocal> comments { get; set; }
         public string description { get; set; }
         public byte[][] img { get; set; }
         public byte[] rowVersion { get; set; }

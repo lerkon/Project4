@@ -89,6 +89,24 @@
   <wsdl:message name="IItemService_latestAdded_ItemFaultFault_FaultMessage">
     <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q9:ItemFault" />
   </wsdl:message>
+  <wsdl:message name="IItemService_getComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:getComments" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_getComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_getComments_ItemFaultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q10:ItemFault" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_setComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:setComment" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_setComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IItemService_setComment_ItemFaultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q11:ItemFault" />
+  </wsdl:message>
   <wsdl:portType name="IItemService">
     <wsdl:operation name="getItem">
       <wsdl:input wsaw:Action="http://tempuri.org/IItemService/getItem" message="tns:IItemService_getItem_InputMessage" />
@@ -134,6 +152,16 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IItemService/latestAdded" message="tns:IItemService_latestAdded_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IItemService/latestAddedResponse" message="tns:IItemService_latestAdded_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IItemService/latestAddedItemFaultFault" name="ItemFaultFault" message="tns:IItemService_latestAdded_ItemFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IItemService/getComments" message="tns:IItemService_getComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IItemService/getCommentsResponse" message="tns:IItemService_getComments_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IItemService/getCommentsItemFaultFault" name="ItemFaultFault" message="tns:IItemService_getComments_ItemFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IItemService/setComment" message="tns:IItemService_setComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IItemService/setCommentResponse" message="tns:IItemService_setComment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IItemService/setCommentItemFaultFault" name="ItemFaultFault" message="tns:IItemService_setComment_ItemFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IItemService" type="tns:IItemService">
@@ -236,6 +264,30 @@
     </wsdl:operation>
     <wsdl:operation name="latestAdded">
       <soap:operation soapAction="http://tempuri.org/IItemService/latestAdded" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ItemFaultFault">
+        <soap:fault use="literal" name="ItemFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getComments">
+      <soap:operation soapAction="http://tempuri.org/IItemService/getComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ItemFaultFault">
+        <soap:fault use="literal" name="ItemFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setComment">
+      <soap:operation soapAction="http://tempuri.org/IItemService/setComment" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

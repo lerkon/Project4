@@ -171,9 +171,9 @@ namespace ServiceLayer
             }
         }
 
-        public Item[] latestAdded()
+        public Item[] latestAdded(ref string message)
         {
-            ItemLocal[] itemsLocal = new ItemControl().latestAdded();
+            ItemLocal[] itemsLocal = new ItemControl().latestAdded(ref message);
             if (itemsLocal != null)
             {
                 Item[] items = new Item[itemsLocal.Count()];
@@ -182,6 +182,49 @@ namespace ServiceLayer
                 return items;
             }
             return null;
+        }
+
+        public void getComments(ref Item item, ref string message)
+        {
+            ItemLocal iL = itemLocalFromItem(item);
+            new ItemControl().getComments(ref iL, ref message);
+            if(iL.comments != null)
+            {
+                item.comments = new List<Comment>();
+                foreach (var comment in iL.comments)
+                    item.comments.Add(commentLocalToComment(comment));
+            }
+        }
+
+        public bool setComment(ref Item item, ref string message)
+        {
+            ItemLocal iL = itemLocalFromItem(item);
+            if (item.comments != null)
+            {
+                iL.comments = new List<CommentLocal>();
+                iL.comments.Add(commentLocalFromComment(item.comments.FirstOrDefault()));
+            }
+            return new ItemControl().setComment(ref iL, ref message);
+        }
+
+        public Comment commentLocalToComment(CommentLocal comment)
+        {
+            Comment c = new Comment();
+            c.comment = comment.comment;
+            c.commentDay = comment.commentDay;
+            c.id = comment.id;
+            c.person = new PersonService().personLocalToPerson(comment.person);
+            return c;
+        }
+
+        public CommentLocal commentLocalFromComment(Comment comment)
+        {
+            CommentLocal c = new CommentLocal();
+            c.comment = comment.comment;
+            c.commentDay = comment.commentDay;
+            c.id = comment.id;
+            c.person = new PersonService().personLocalFromPerson(comment.person);
+            return c;
         }
     }
 }
